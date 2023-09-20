@@ -48,7 +48,7 @@ public class JogoGeneral {
 
     public int pontuarJogada(int n){
         int i, j;
-        int[] armazenaValores = new int[5];
+        int[] armazenaValores = new int[6];
 
         for(i = 0; i < 6; i++){
             armazenaValores[dice[i].getFaceSuperior() - 1] += 1;
@@ -58,19 +58,19 @@ public class JogoGeneral {
             return armazenaValores[0] * 1;
         }
         else if(n == 2){
-            return armazenaValores[1] * 1;
+            return armazenaValores[1] * 2;
         }
         else if(n == 3){
-            return armazenaValores[2] * 1;
+            return armazenaValores[2] * 3;
         }
         else if(n == 4){
-            return armazenaValores[3] * 1;
+            return armazenaValores[3] * 4;
         }
         else if(n == 5){
-            return armazenaValores[4] * 1;
+            return armazenaValores[4] * 5;
         }
         else if(n == 6){
-            return armazenaValores[5] * 1;
+            return armazenaValores[5] * 6;
         }
         else if(n == 7){
             int soma = 0;
@@ -148,8 +148,6 @@ public class JogoGeneral {
             }
         }
         else if(n == 12){
-            int c = 0;
-
             for(i = 0; i < 6; i++){
                 if(armazenaValores[i] == 5){
                     return 50;
