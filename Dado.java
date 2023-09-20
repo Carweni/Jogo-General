@@ -3,7 +3,7 @@ import java.util.Random;
 public class Dado {
      private int faceSup;
 
-        public Die(){
+        public Dado(){
             faceSup = 1;
         }
 
@@ -14,6 +14,10 @@ public class Dado {
         public void roll(){          // Rola o dado.
             Random random = new Random();
             this.faceSup = random.nextInt(6) + 1;
+        }
+
+        public String toString(){
+            System.out.println("A face superior do dado eh", this.faceSup);
         }
     
 }
