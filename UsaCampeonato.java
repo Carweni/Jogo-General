@@ -25,9 +25,11 @@ public class UsaCampeonato {
             }
         }while(c != 'a' && c != 'b' && c != 'c' && c != 'd' && c != 'e' && c != 'f' && c != 'g' && c != 'm');
 
+        tec.nextLine();
+
         switch(c){
-            case 'a':
-                System.out.println("Informe o apelido(nickname) do jogador: ");
+            case 'a': // Se a escolha foi 'a', incluie-se um jogador:
+                System.out.println("Informe o apelido(nickname) do jogador a ser adicionado: ");
                 String nome = tec.nextLine();
                 char tipo;
                 do{
@@ -35,24 +37,45 @@ public class UsaCampeonato {
                     tipo = tec.next().charAt(0);
 
                     if (tipo != 'M' && tipo != 'm' && tipo != 'H' && tipo != 'h'){
-                        System.out.println("Tipo invalido! Tente novamente.")
+                        System.out.println("Tipo invalido! Tente novamente.");
                     }
                 }while(tipo != 'M' && tipo != 'm' && tipo != 'H' && tipo != 'h');
 
-                league.incluirJogador(nome, tipo);
+                //league.incluirJogador(nome, tipo);
 
                 break;
-            case 'b':
+            case 'b': // Se a escolha foi 'b', remove-se um jogador:
+                System.out.println("Informe o apelido(nickname) do jogador a ser excluido: ");
+                String name = tec.nextLine();
+                // boolean foiExcluido = league.removerJogador(name);
+
+                // if(foiExcluido){
+                //     System.out.println("Remocao bem-sucedida!");
+                // }
+                // else{
+                //     System.out.println("Jogador nao encontrado!")
+                // }
+                
                 break;
-            case 'c':
+            case 'c': // Se a escolha foi 'c', executa-se a rodada:
+                //league.iniciarCampeonato();
+
                 break;
-            case 'd':
+            case 'd': // Se a escolha foi 'd', mostra-se a cartela:
+                //league.mostrarCartela();
+
                 break;
-            case 'e':
+            case 'e': // Se a escolha foi 'e', grava-se a partida em arquivo:
+                System.out.println("..::Gravando em arquivo::..");
+                //league.gravarEmArquivo();
+                System.out.println("Gravacao completa!");
+
                 break;
-            case 'f':
+            case 'f': // Se a escolha foi 'f', lê-se os dados salvos em arquivo:
+                //league.lerDoArquivo();
+
                 break;
-            case 'g':
+            case 'g': // Se a escolha foi 'g', sai da aplicacao:
                 break;
             case 'm':
                 System.out.println(":..::..: Menu interativo :..::..: ");
