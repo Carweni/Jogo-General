@@ -1,7 +1,7 @@
 public class Campeonato {
     private Jogador[] players = new Jogador[5];
     
-    public void incluirJogador(String nome, String tipo){
+    public void incluirJogador(String nome, char tipo){
         int i=0;
         //percorre array de jogador para adicionar no próximo espaço vazio;
         while(players[i].getNome()!=null && i<players.length){
