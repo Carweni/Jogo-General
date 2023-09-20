@@ -1,11 +1,26 @@
 public class Campeonato {
     private Jogador[] players = new Jogador[5];
     
-    public void incluirJogador(String nome, char tipo){
+    public void incluirJogador(String nome, String tipo){
+        int i=0;
+        while(players[i].getNome()!=null && i<players.length){
+            i++;
+        }
 
-    }
-
-    public boolean removerJogador(){ // Retorna true se o jogador existia e foi removido ou false se nao houve remocao.
+        players[i] = new Jogador(nome, tipo);
         
     }
+
+    public boolean removerJogador(String nome){
+        for(int i=0;i<players.length;i++){
+            if(players[i].getNome()==nome){
+                players[i].setNome(null); 
+                players[i].setTipo(null);
+                return true;
+            }
+        }
+        return false;
+    }
+
+
 }
