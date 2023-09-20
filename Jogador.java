@@ -24,6 +24,17 @@ public class Jogador {
         this.tipo = tipo;
     }
 
+    public String toString(){
+        String s = new String();
+        s = "Nome: " + this.nome;
+        if(this.tipo == "H"){
+            s= s + " - Tipo: Humano";
+        }
+        else(this.tipo == "M"){
+            s= s + " - Tipo: Maquina";
+        }
 
-    
+        s = s + "\n" + jogo.toString();
+        return s;
+    }
 }
