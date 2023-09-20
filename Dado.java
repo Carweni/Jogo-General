@@ -11,13 +11,13 @@ public class Dado {
             return  faceSup;
         }
 
-        public void roll(){          // Rola o dado.
+        public void roll(){          // Rola o dado. Para sua face superior sera atribuido um valor entre 1 e 6.
             Random random = new Random();
             this.faceSup = random.nextInt(6) + 1;
         }
 
-        public String toString(){
-            System.out.println("A face superior do dado eh", this.faceSup);
+        public String toString(){    
+            return "A face superior do dado eh" + this.faceSup;
         }
     
 }
