@@ -1,14 +1,17 @@
-public class Campeonato {
+import java.io.Serializable;
+
+public class Campeonato implements Serializable{
     private Jogador[] players = new Jogador[5];
     
     public void incluirJogador(String nome, char tipo){
-        int i=0;
+        int i = 0;
         //percorre array de jogador para adicionar no próximo espaço vazio;
-        while(players[i].getNome()!=null && i<players.length){
+        while (i < players.length && players[i] != null) {
             i++;
         }
-        //caso array cheio, não adiciona o jogador;
-        if(i<players.length){
+
+        // Caso array cheio, não adiciona o jogador;
+        if(i < players.length){
             players[i] = new Jogador(nome, tipo);
         }
         else{
@@ -16,12 +19,13 @@ public class Campeonato {
         }        
     }
 
-    public boolean removerJogador(String nome){
+    public boolean removerJogador(String nome){        
         //percorre array de jogador, procurando pelo nome, caso não ache, retorna falso;
-        for(int i=0;i<players.length;i++){
-            if(players[i].getNome()==nome){
+        for(int i=0;i<players.length;i++)
+        {
+            if(players[i].getNome().equals(nome)){
                 players[i].setNome(null); 
-                players[i].setTipo(null);
+                players[i].setTipo('-');
                 return true;
             }
         }
