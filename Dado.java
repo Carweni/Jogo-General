@@ -17,7 +17,9 @@ public class Dado {
         }
 
         public String toString(){
-            System.out.println("A face superior do dado eh", this.faceSup);
+            String s = new String();
+            s = "A face superior do dado eh" + this.faceSup;
+            return s;
         }
     
 }

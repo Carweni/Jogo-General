@@ -2,10 +2,11 @@ import java.util.Scanner;
 
 public class UsaCampeonato {
     public static void main(String []args){
-        Campeonato league = new Campeonato();
         Scanner tec = new Scanner(System.in);
         char c;
         int sair = 0;
+        
+        Campeonato league = new Campeonato();
 
         System.out.println(":..::..: Menu interativo :..::..: ");
         System.out.println("a - Incluir jogador"); // Informar nome e tipo.
@@ -15,10 +16,11 @@ public class UsaCampeonato {
         System.out.println("e - Gravar os resultados em arquivo"); 
         System.out.println("f - Ler os dados em arquivo"); 
         System.out.println("g - Sair do jogo"); 
+
         while(sair==0){
             // Escolhe-se uma opcao do menu. Se for invalida, informa-se o usuario e esse informa uma nova escolha.
             do{
-                System.out.println("Escolha a sua opcao(m mostra o menu novamente): ");
+                System.out.println("Escolha a sua opcao (m mostra o menu novamente): ");
                 c = tec.next().charAt(0);
     
                 if (c != 'a' && c != 'b' && c != 'c' && c != 'd' && c != 'e' && c != 'f' && c != 'g' && c != 'm'){
@@ -42,20 +44,21 @@ public class UsaCampeonato {
                         }
                     }while(tipo != 'M' && tipo != 'm' && tipo != 'H' && tipo != 'h');
     
-                    //league.incluirJogador(nome, tipo);
+                    league.incluirJogador(nome, tipo);
     
                     break;
                 case 'b': // Se a escolha foi 'b', remove-se um jogador:
                     System.out.println("Informe o apelido(nickname) do jogador a ser excluido: ");
                     String name = tec.nextLine();
-                    // boolean foiExcluido = league.removerJogador(name);
+                    
+                    boolean foiExcluido = league.removerJogador(name);
     
-                    // if(foiExcluido){
-                    //     System.out.println("Remocao bem-sucedida!");
-                    // }
-                    // else{
-                    //     System.out.println("Jogador nao encontrado!")
-                    // }
+                    if(foiExcluido){
+                        System.out.println("Remocao bem-sucedida!");
+                    }
+                    else{
+                        System.out.println("Jogador nao encontrado!");
+                    }
                     
                     break;
                 case 'c': // Se a escolha foi 'c', executa-se a rodada:
@@ -91,6 +94,8 @@ public class UsaCampeonato {
                     break;
             }
         }
+
+        tec.close();
 
     }
     

@@ -1,9 +1,9 @@
 public class Jogador {
     private String nome = new String();
-    private String tipo = new String();
+    private char tipo;
     private JogoGeneral jogo = new JogoGeneral();
 
-    public Jogador(String nome, String tipo){
+    public Jogador(String nome, char tipo){
         this.nome = nome;
         this.tipo = tipo;
     }
@@ -12,7 +12,7 @@ public class Jogador {
         return nome;
     }
 
-    public String getTipo() {
+    public char getTipo() {
         return tipo;
     }
     
@@ -20,17 +20,17 @@ public class Jogador {
         this.nome = nome;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(char tipo) {
         this.tipo = tipo;
     }
 
     public String toString(){
         String s = new String();
         s = "Nome: " + this.nome;
-        if(this.tipo == "H"){
+        if(this.tipo == 'H'){
             s= s + " - Tipo: Humano";
         }
-        else(this.tipo == "M"){
+        else if(this.tipo == 'M'){
             s= s + " - Tipo: Maquina";
         }
 
