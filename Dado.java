@@ -1,6 +1,7 @@
 import java.util.Random;
+import java.io.Serializable;
 
-public class Dado {
+public class Dado implements Serializable{
      private int faceSup;
 
         public Dado(){

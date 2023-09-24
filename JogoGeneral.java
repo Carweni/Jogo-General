@@ -1,6 +1,8 @@
-public class JogoGeneral {
-    private[] Dado dice = new Dado[5];
-    private[] int jogadas = new int[13];
+import java.io.Serializable;
+
+public class JogoGeneral implements Serializable {
+    private Dado[] dice = new Dado[5];
+    private int[] jogadas = new int[13];
 
     public JogoGeneral(){
         int i;
@@ -28,9 +30,10 @@ public class JogoGeneral {
 
         System.out.println("Valores dos dados:");
         for(i = 0; i < 5; i++){
-            str.append(dice[i]);
+            str = str + dice[i];
+
             if (i < 4){
-                str.append("-");
+                str = str + "-";
             }
         }
 
@@ -38,7 +41,7 @@ public class JogoGeneral {
     }
 
     public boolean validarJogada(int n){
-        if(jogadas[i - 1] == -1){
+        if(jogadas[n - 1] == -1){
             return true;
         }
         else{
@@ -164,6 +167,8 @@ public class JogoGeneral {
             }
             return s;
         }
+
+        return 0;
     }
     
 }
