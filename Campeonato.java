@@ -3,10 +3,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable; 
+import java.io.Serializable;
 
 public class Campeonato implements Serializable{
-    private Jogador[] players = new Jogador[10];
+    private Jogador[] players = new Jogador[5];
     
     public void incluirJogador(String nome, char tipo){
         int i=0;
@@ -23,18 +23,21 @@ public class Campeonato implements Serializable{
             players[i].setTipo(tipo);
         }
         else{
-            System.out.println("Numero máximo de jogadores atingido!!");
-        }
-
+            System.out.println("Numero máximo de jogadores atingido!!! Nao foi possivel incluir");
+        }        
     }
 
-    public boolean removerJogador(String nome){
-        //percorre array de jogador, procurando pelo nome, caso não ache, retorna falso;
-        for(int i=0;i<players.length;i++){
-            if(players[i]!=null && players[i].getNome()==nome){
-                players[i].setNome(" "); 
-                players[i].setTipo(' ');
-                return true;
+    public boolean removerJogador(String nome){        
+        // Percorre array de jogador, procurando pelo nome. Caso não ache, retorna falso:
+        if(this.players != null){
+            for(int i = 0; i < players.length; i++){
+                if(this.players[i] != null){
+                    if(this.players[i].getNome().equals(nome)){
+                        players[i].setNome(null); 
+                        players[i].setTipo('-');
+                        return true;
+                    }
+                }
             }
         }
         return false;
