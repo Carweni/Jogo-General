@@ -7,34 +7,36 @@ import java.io.Serializable;
 
 public class Campeonato implements Serializable{
     private Jogador[] players = new Jogador[5];
-    
-    public void incluirJogador(String nome, char tipo){
-        int i=0;
-        //percorre array de jogador para adicionar no próximo espaço vazio;
-        while(players[i]!= null && players[i].getNome()!=" " && i<players.length){
+
+    public int jogadoresCheio(){
+        int i = 0;
+
+        while(i <= 4 && players[i] != null && players[i].getNome() != null){
             i++;
         }
+
+        return i;
+    }
+    
+    public void incluirJogador(String nome, char tipo, int i){
         //caso array cheio, não adiciona o jogador;
-        if(players[i]==null && i<players.length){
+        if(players[i]==null && i < 5){
             players[i] = new Jogador(nome, tipo);
         }
-        else if(players[i]!=null && i<players.length){
+        else if(players[i]!=null && i < players.length){
             players[i].setNome(nome);
             players[i].setTipo(tipo);
-        }
-        else{
-            System.out.println("Numero máximo de jogadores atingido!!! Nao foi possivel incluir");
-        }        
+        }      
     }
 
     public boolean removerJogador(String nome){        
         // Percorre array de jogador, procurando pelo nome. Caso não ache, retorna falso:
         if(this.players != null){
-            for(int i = 0; i < players.length; i++){
+            for(int i = 0; i < 5; i++){
                 if(this.players[i] != null){
                     if(this.players[i].getNome().equals(nome)){
                         players[i].setNome(null); 
-                        players[i].setTipo('-');
+                        players[i].setTipo(' ');
                         return true;
                     }
                 }
@@ -65,11 +67,11 @@ public class Campeonato implements Serializable{
 		}catch(Exception ex) {
 			System.err.println("erro: " + ex.toString());
         }
-		break;
     }
 
     public void lerDoArquivo(){
         try {
+            File arquivo = new File("Campeonato.dat");
 			FileInputStream fin = new FileInputStream(arquivo);
 			ObjectInputStream oin = new ObjectInputStream(fin);
 
@@ -79,8 +81,6 @@ public class Campeonato implements Serializable{
 		}catch (Exception ex) {
 			System.err.println("erro: " + ex.toString());
 		}
-
- 		break;
     }
 
 }

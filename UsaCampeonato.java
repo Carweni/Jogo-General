@@ -35,16 +35,23 @@ public class UsaCampeonato {
                     System.out.println("Informe o apelido(nickname) do jogador a ser adicionado: ");
                     String nome = tec.nextLine();
                     char tipo;
-                    do{
-                        System.out.println("Informe o tipo do jogador(H - Humano ou M - Maquina): ");
-                        tipo = tec.next().charAt(0);
-    
-                        if (tipo != 'M' && tipo != 'm' && tipo != 'H' && tipo != 'h'){
-                            System.out.println("Tipo invalido! Tente novamente.");
-                        }
-                    }while(tipo != 'M' && tipo != 'm' && tipo != 'H' && tipo != 'h');
-    
-                    league.incluirJogador(nome, tipo);
+                    int n = league.jogadoresCheio();
+
+                    if(n >= 0 && n < 5){
+                        do{
+                            System.out.println("Informe o tipo do jogador(H - Humano ou M - Maquina): ");
+                            tipo = tec.next().charAt(0);
+        
+                            if (tipo != 'M' && tipo != 'm' && tipo != 'H' && tipo != 'h'){
+                                System.out.println("Tipo invalido! Tente novamente.");
+                            }
+                        }while(tipo != 'M' && tipo != 'm' && tipo != 'H' && tipo != 'h');
+        
+                        league.incluirJogador(nome, tipo, n);
+                    }
+                    else{
+                        System.out.println("Numero maximo de jogadores atingido!!! Nao foi possivel incluir");
+                    }
     
                     break;
                 case 'b': // Se a escolha foi 'b', remove-se um jogador:
