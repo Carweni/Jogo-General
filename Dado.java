@@ -17,8 +17,8 @@ public class Dado implements Serializable{
             this.faceSup = random.nextInt(6) + 1;
         }
 
-        public String toString(){    
-            return "A face superior do dado eh" + this.faceSup;
+        public String toStringDado(){    
+            return "" + this.faceSup;
         }
     
 }

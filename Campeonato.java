@@ -4,6 +4,7 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
+import java.util.Scanner;
 
 public class Campeonato implements Serializable{
     private Jogador[] players = new Jogador[5];
@@ -46,11 +47,35 @@ public class Campeonato implements Serializable{
     }
 
     public void iniciarCampeonato(){
+        Scanner tec = new Scanner(System.in);
+
         if(players.length == 0){
             System.out.println("Nenhum jogador foi registrado! ");
         }
         else{
+            for (int rodada = 1; rodada <= 13; rodada++) {
+                System.out.println("\nRodada " + rodada);
 
+                // Loop para permitir que cada jogador realize sua jogada:
+                for (Jogador jogador : players) {
+                    if(jogador != null){
+                        System.out.println(jogador.getNome() + ", é a sua vez.");
+                        jogador.jogada();
+
+                        System.out.println("Escolha uma jogada:");
+                        int escolha = tec.nextInt();
+
+                        // Verificar se a jogada é válida:
+                        if (jogador.validarJogada(escolha)) {
+                            // Calcular a pontuação da jogada:
+                            int pontuacao = jogador.pontuar(escolha);
+                        } 
+                        else {
+                            System.out.println("Jogada inválida. Escolha outra jogada.");
+                        }
+                    }
+                }
+            }
         }
     }
 

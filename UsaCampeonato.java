@@ -21,16 +21,16 @@ public class UsaCampeonato {
             // Escolhe-se uma opcao do menu. Se for invalida, informa-se o usuario e esse informa uma nova escolha.
             do{
                 System.out.println("Escolha a sua opcao (m mostra o menu novamente): ");
-                c = tec.next().charAt(0);
+                op = tec.next().charAt(0);
     
-                if (c != 'a' && c != 'b' && c != 'c' && c != 'd' && c != 'e' && c != 'f' && c != 'g' && c != 'm'){
+                if (op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm'){
                     System.out.println("Opcao invalida! Tente novamente.");
                 }
-            }while(c != 'a' && c != 'b' && c != 'c' && c != 'd' && c != 'e' && c != 'f' && c != 'g' && c != 'm');
+            }while(op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm');
     
             tec.nextLine();
     
-            switch(c){
+            switch(op){
                 case 'a': // Se a escolha foi 'a', incluie-se um jogador:
                     System.out.println("Informe o apelido(nickname) do jogador a ser adicionado: ");
                     String nome = tec.nextLine();
@@ -69,7 +69,7 @@ public class UsaCampeonato {
                     
                     break;
                 case 'c': // Se a escolha foi 'c', executa-se a rodada:
-                    //league.iniciarCampeonato();
+                    league.iniciarCampeonato();
     
                     break;
                 case 'd': // Se a escolha foi 'd', mostra-se a cartela:

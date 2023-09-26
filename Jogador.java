@@ -31,13 +31,24 @@ public class Jogador implements Serializable {
         s = "Nome: " + this.nome;
 
         if(this.tipo == 'H'){
-            s= s + " - Tipo: Humano";
+            s = s + " - Tipo: Humano";
         }
         else if(this.tipo == 'M'){
-            s= s + " - Tipo: Maquina";
+            s = s + " - Tipo: Maquina";
         }
 
         s = s + "\n" + jogo.toString();
         return s;
+    }
+
+    public void jogada(){
+       jogo.rolarDados();
+       String s = jogo.toString(); 
+
+       System.out.print(s);
+    }
+
+    public int pontuar(int escolha){
+        jogo.pontuarJogada(escolha)
     }
 }

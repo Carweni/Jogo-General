@@ -29,11 +29,15 @@ public class JogoGeneral implements Serializable {
         String str = new String();
 
         System.out.println("Valores dos dados:");
+
         for(i = 0; i < 5; i++){
-            str = str + dice[i];
+            str = str + this.dice[i].toStringDado();
 
             if (i < 4){
                 str = str + "-";
+            }
+            else{
+                str = str + "\n";
             }
         }
 
