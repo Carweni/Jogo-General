@@ -48,7 +48,11 @@ public class Jogador implements Serializable {
        System.out.print(s);
     }
 
+    public boolean validar(int escolha){
+        return jogo.validarJogada(escolha);
+    }
+
     public int pontuar(int escolha){
-        jogo.pontuarJogada(escolha)
+        return jogo.pontuarJogada(escolha);
     }
 }

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class UsaCampeonato {
     public static void main(String []args){
         Scanner tec = new Scanner(System.in);
-        char c;
+        char op;
         int sair = 0;
         
         Campeonato league = new Campeonato();

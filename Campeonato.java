@@ -61,17 +61,21 @@ public class Campeonato implements Serializable{
                     if(jogador != null){
                         System.out.println(jogador.getNome() + ", é a sua vez.");
                         jogador.jogada();
+                        
+                        int guia = 0; 
+                        while(guia == 0){
+                            System.out.println("Escolha uma jogada:");
+                            int escolha = tec.nextInt();
 
-                        System.out.println("Escolha uma jogada:");
-                        int escolha = tec.nextInt();
-
-                        // Verificar se a jogada é válida:
-                        if (jogador.validarJogada(escolha)) {
-                            // Calcular a pontuação da jogada:
-                            int pontuacao = jogador.pontuar(escolha);
-                        } 
-                        else {
-                            System.out.println("Jogada inválida. Escolha outra jogada.");
+                            // Verificar se a jogada é válida:
+                            if (jogador.validar(escolha)) {
+                                // Calcular a pontuação da jogada:
+                                int pontuacao = jogador.pontuar(escolha);
+                                guia = 1;
+                            } 
+                            else {
+                                System.out.println("Jogada inválida. Escolha outra jogada.");
+                            }
                         }
                     }
                 }
