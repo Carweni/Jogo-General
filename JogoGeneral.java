@@ -90,7 +90,7 @@ public class JogoGeneral implements Serializable {
             for(i = 0; i < 6; i++){
                 if(armazenaValores[i] == 3){
                     for(j = 0; j < 5; j++){
-                        soma += dice[i].getFaceSuperior();
+                        soma += dice[j].getFaceSuperior();
                     }
                     break;
                 }
@@ -104,7 +104,7 @@ public class JogoGeneral implements Serializable {
             for(i = 0; i < 6; i++){
                 if(armazenaValores[i] == 3){
                     for(j = 0; j < 5; j++){
-                        sum += dice[i].getFaceSuperior();
+                        sum += dice[j].getFaceSuperior();
                     }
                     break;
                 }
@@ -117,7 +117,7 @@ public class JogoGeneral implements Serializable {
             for(i = 0; i < 6; i++){
                 if(armazenaValores[i] == 3){
                     for(j = 0; j < 6; j++){
-                        if(armazenaValores[i] == 2){
+                        if(armazenaValores[j] == 2){
                             return 25;
                         }
                     }
@@ -180,4 +180,13 @@ public class JogoGeneral implements Serializable {
         return 0;
     }
     
+    public int calculaTotal(){
+        int total = 0;
+
+        for(int i = 0; i < 13; i++){
+            total += jogadas[i];
+        }
+
+        return total;
+    }
 }

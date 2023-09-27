@@ -57,6 +57,10 @@ public class Jogador implements Serializable {
     }
 
     public void gravarPontos(int i, int pontuacao){
-        jogo.setJogada();
+        jogo.setJogada(i, pontuacao);
+    }
+
+    public int total(){
+        return jogo.calculaTotal();
     }
 }

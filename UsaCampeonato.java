@@ -28,7 +28,7 @@ public class UsaCampeonato {
                 }
             }while(op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm');
     
-            tec.nextLine();
+            tec.nextLine(); // Limpa o buffer do teclado.
     
             switch(op){
                 case 'a': // Se a escolha foi 'a', incluie-se um jogador:
@@ -70,7 +70,6 @@ public class UsaCampeonato {
                     break;
                 case 'c': // Se a escolha foi 'c', executa-se a rodada:
                     league.iniciarCampeonato();
-    
                     break;
                 case 'd': // Se a escolha foi 'd', mostra-se a cartela:
                     //league.mostrarCartela();

@@ -49,6 +49,7 @@ public class Campeonato implements Serializable{
     public void iniciarCampeonato(){
         Scanner tec = new Scanner(System.in);
         char confirma;
+        int maior = 0, tot = 0, maiorInd = 0;
 
         if(players.length == 0){
             System.out.println("Nenhum jogador foi registrado! ");
@@ -60,48 +61,84 @@ public class Campeonato implements Serializable{
                 // Loop para permitir que cada jogador realize sua jogada:
                 for (Jogador jogador : players) {
                     if(jogador != null){
-                        System.out.println(jogador.getNome() + ", é a sua vez.");
-                        jogador.jogada();
-                        
-                        int guia = 0; 
-                        while(guia == 0){
+                        if(jogador.getTipo() == 'H' || jogador.getTipo() == 'h'){
+                            System.out.println(jogador.getNome() + ", é a sua vez.");
+                            jogador.jogada();
+                            
+                            int guia = 0; 
                             int escolha;
-
-                            do{
-                                System.out.println("Escolha uma jogada:");
-                                escolha = tec.nextInt();
-
-                                if(escolha < 1 || escolha > 13){
-                                    System.out.println("Favor, informar um numero entre 1 e 13. ");
-                                }    
-                            }while(escolha < 1 || escolha > 13);
-
-                            // Verificar se a jogada é válida:
-                            if (jogador.validar(escolha)) {
-                                // Calcular a pontuação da jogada:
-                                int pontuacao = jogador.pontuar(escolha);
-
-                                System.out.println("Essa jogada gera o seguinte numero de pontos: " + pontuacao);
+                            while(guia == 0){
                                 do{
-                                    System.out.println("Deseja confirma-la(S/N)? ");
-                                    confirma = tec.next().charAt(0);
-                                }while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
+                                    System.out.println("Escolha uma jogada:");
+                                    escolha = tec.nextInt();
 
-                                if(confirma == 'S' || confirma == 's'){
-                                    guia = 1;
+                                    if(escolha < 1 || escolha > 13){
+                                        System.out.println("Favor, informar um numero entre 1 e 13. ");
+                                    }    
+                                }while(escolha < 1 || escolha > 13);
+
+                                // Verificar se a jogada é válida:
+                                if (jogador.validar(escolha)) {
+                                    // Calcular a pontuação da jogada:
+                                    int pontuacao = jogador.pontuar(escolha);
+
+                                    System.out.println("Essa jogada gera o seguinte numero de pontos: " + pontuacao);
+                                    do{
+                                        System.out.println("Deseja confirma-la(S/N)? ");
+                                        confirma = tec.next().charAt(0);
+                                    }while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
+
+                                    if(confirma == 'S' || confirma == 's'){
+                                        jogador.gravarPontos(escolha, pontuacao);
+                                        guia = 1;
+                                    }
+                                    else if(confirma == 'N' || confirma == 'n'){
+                                        System.out.print("Ok. ");
+                                    }
+                                } 
+                                else {
+                                    System.out.println("Jogada inválida. Escolha outra jogada.");
                                 }
-                                else if(confirma == 'N' || confirma == 'n'){
-                                    System.out.print("Ok. ");
-                                }
-                            } 
-                            else {
-                                System.out.println("Jogada inválida. Escolha outra jogada.");
                             }
+                            
+                        }
+
+                        if(jogador.getTipo() == 'M' || jogador.getTipo() == 'm'){
+                            System.out.println(jogador.getNome() + ", é a sua vez.");
+                            jogador.jogada();
+
+                            int melhorJogada = 1;
+                            int melhorPontuacao = 0;
+                        
+                            for (int choice = 1; choice <= 13; choice++) {
+                                if (jogador.validar(choice)) {
+                                    int pontuacao = jogador.pontuar(choice);
+                                    if (pontuacao > melhorPontuacao) {
+                                        melhorPontuacao = pontuacao;
+                                        melhorJogada = choice;
+                                    }
+                                }
+                            }
+                        
+                            System.out.println("Essa jogada gera o seguinte numero de pontos: " + melhorPontuacao);
+                            jogador.gravarPontos(melhorJogada, melhorPontuacao);
                         }
                     }
                 }
             }
         }
+
+        for (int k = 0; k < 5; k++){
+            if(players[k] != null){
+                tot = players[k].total();
+                if(tot > maior){
+                    maior = tot;
+                    maiorInd = k;
+                }
+            }
+        }
+
+        System.out.println("A vencedora eh " + players[maiorInd].getNome() + " com " + maior + " pontos. ");
 
         tec.close();
     }
