@@ -47,7 +47,7 @@ public class Campeonato implements Serializable{
     }
 
     public void iniciarCampeonato(){
-        Scanner tec = new Scanner(System.in);
+        Scanner teclado = new Scanner(System.in);
         char confirma;
         int maior = 0, tot = 0, maiorInd = 0;
 
@@ -70,7 +70,7 @@ public class Campeonato implements Serializable{
                             while(guia == 0){
                                 do{
                                     System.out.println("Escolha uma jogada:");
-                                    escolha = tec.nextInt();
+                                    escolha = teclado.nextInt();
 
                                     if(escolha < 1 || escolha > 13){
                                         System.out.println("Favor, informar um numero entre 1 e 13. ");
@@ -85,7 +85,7 @@ public class Campeonato implements Serializable{
                                     System.out.println("Essa jogada gera o seguinte numero de pontos: " + pontuacao);
                                     do{
                                         System.out.println("Deseja confirma-la(S/N)? ");
-                                        confirma = tec.next().charAt(0);
+                                        confirma = teclado.next().charAt(0);
                                     }while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
 
                                     if(confirma == 'S' || confirma == 's'){
@@ -139,12 +139,11 @@ public class Campeonato implements Serializable{
         }
 
         System.out.println("A vencedora eh " + players[maiorInd].getNome() + " com " + maior + " pontos. ");
-
-        tec.close();
     }
 
     public void gravarEmArquivo(){
 		File arquivo = new File("Campeonato.dat");
+
         try {
 			FileOutputStream fout = new FileOutputStream(arquivo);
 			ObjectOutputStream oos = new ObjectOutputStream(fout);
@@ -159,12 +158,13 @@ public class Campeonato implements Serializable{
     }
 
     public void lerDoArquivo(){
+        File arquivo = new File("Campeonato.dat");
+
         try {
-            File arquivo = new File("Campeonato.dat");
 			FileInputStream fin = new FileInputStream(arquivo);
 			ObjectInputStream oin = new ObjectInputStream(fin);
 
-			players = (Jogador[]) oin.readObject();
+			players = (Jogador[])oin.readObject();
 			oin.close();
 			fin.close();
 		}catch (Exception ex) {

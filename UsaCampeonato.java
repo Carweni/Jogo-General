@@ -77,12 +77,12 @@ public class UsaCampeonato {
                     break;
                 case 'e': // Se a escolha foi 'e', grava-se a partida em arquivo:
                     System.out.println("..::Gravando em arquivo::..");
-                    //league.gravarEmArquivo();
+                    league.gravarEmArquivo();
                     System.out.println("Gravacao completa!");
     
                     break;
                 case 'f': // Se a escolha foi 'f', lê-se os dados salvos em arquivo:
-                    //league.lerDoArquivo();
+                    league.lerDoArquivo();
     
                     break;
                 case 'g': // Se a escolha foi 'g', sai da aplicacao:
