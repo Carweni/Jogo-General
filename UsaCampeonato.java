@@ -17,7 +17,7 @@ public class UsaCampeonato {
         System.out.println("f - Ler os dados em arquivo"); 
         System.out.println("g - Sair do jogo"); 
 
-        while(sair==0){
+        while(sair == 0){
             // Escolhe-se uma opcao do menu. Se for invalida, informa-se o usuario e esse informa uma nova escolha.
             do{
                 System.out.println("Escolha a sua opcao (m mostra o menu novamente): ");

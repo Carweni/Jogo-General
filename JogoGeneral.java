@@ -11,12 +11,17 @@ public class JogoGeneral implements Serializable {
         for(i = 0; i < 5; i++){
             this.dice[i] = new Dado();  // Inicializa os dados.
         }
+
         for(j = 0; j < 13; j++){
-            this.jogadas[i] = -1;   // Se o indice marca -1, significa que a jogada ainda nao foi realizada.
+            this.jogadas[j] = -1;   // Se o indice marca -1, significa que a jogada ainda nao foi realizada.
         }
     }
 
-    public void rolarDados(){ // Aos 5 dados serao atribuidos valores entre 1 e 6, referentes às suas faces superiores 
+    public void setJogada(int i, int pontuacao){
+        this.jogadas[i - 1] = pontuacao;
+    }
+
+    public void rolarDados(){ // Aos 5 dados serao atribuidos valores entre 1 e 6, referentes as suas faces superiores 
         int i;
         
         for(i = 0; i < 5; i++){
@@ -57,7 +62,7 @@ public class JogoGeneral implements Serializable {
         int i, j;
         int[] armazenaValores = new int[6];
 
-        for(i = 0; i < 6; i++){
+        for(i = 0; i < 5; i++){
             armazenaValores[dice[i].getFaceSuperior() - 1] += 1;
         }
 
@@ -167,7 +172,7 @@ public class JogoGeneral implements Serializable {
             int s = 0;
 
             for(j = 0; j < 5; j++){
-                s += dice[i].getFaceSuperior();
+                s += dice[j].getFaceSuperior();
             }
             return s;
         }

@@ -48,6 +48,7 @@ public class Campeonato implements Serializable{
 
     public void iniciarCampeonato(){
         Scanner tec = new Scanner(System.in);
+        char confirma;
 
         if(players.length == 0){
             System.out.println("Nenhum jogador foi registrado! ");
@@ -64,14 +65,34 @@ public class Campeonato implements Serializable{
                         
                         int guia = 0; 
                         while(guia == 0){
-                            System.out.println("Escolha uma jogada:");
-                            int escolha = tec.nextInt();
+                            int escolha;
+
+                            do{
+                                System.out.println("Escolha uma jogada:");
+                                escolha = tec.nextInt();
+
+                                if(escolha < 1 || escolha > 13){
+                                    System.out.println("Favor, informar um numero entre 1 e 13. ");
+                                }    
+                            }while(escolha < 1 || escolha > 13);
 
                             // Verificar se a jogada é válida:
                             if (jogador.validar(escolha)) {
                                 // Calcular a pontuação da jogada:
                                 int pontuacao = jogador.pontuar(escolha);
-                                guia = 1;
+
+                                System.out.println("Essa jogada gera o seguinte numero de pontos: " + pontuacao);
+                                do{
+                                    System.out.println("Deseja confirma-la(S/N)? ");
+                                    confirma = tec.next().charAt(0);
+                                }while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
+
+                                if(confirma == 'S' || confirma == 's'){
+                                    guia = 1;
+                                }
+                                else if(confirma == 'N' || confirma == 'n'){
+                                    System.out.print("Ok. ");
+                                }
                             } 
                             else {
                                 System.out.println("Jogada inválida. Escolha outra jogada.");
@@ -81,6 +102,8 @@ public class Campeonato implements Serializable{
                 }
             }
         }
+
+        tec.close();
     }
 
     public void gravarEmArquivo(){
