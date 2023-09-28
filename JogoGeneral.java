@@ -6,13 +6,14 @@ public class JogoGeneral implements Serializable {
 
     public JogoGeneral(){
         int i;
-        int j;
 
         for(i = 0; i < 5; i++){
             this.dice[i] = new Dado();  // Inicializa os dados.
         }
+    }
 
-        for(j = 0; j < 13; j++){
+    public void inicializarJogadas(){
+        for(int j = 0; j < 13; j++){
             this.jogadas[j] = -1;   // Se o indice marca -1, significa que a jogada ainda nao foi realizada.
         }
     }

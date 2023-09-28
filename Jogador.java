@@ -41,6 +41,10 @@ public class Jogador implements Serializable {
         return s;
     }
 
+    public void inicializarPartida(){
+        jogo.inicializarJogadas();
+    }
+
     public void jogada(){
        jogo.rolarDados();
        String s = jogo.toString(); 

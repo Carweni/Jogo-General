@@ -55,18 +55,25 @@ public class Campeonato implements Serializable{
             System.out.println("Nenhum jogador foi registrado! ");
         }
         else{
+            for(Jogador jog : players){
+                if(jog != null){
+                    jog.inicializarPartida();
+                }
+            }
+
             for (int rodada = 1; rodada <= 13; rodada++) {
-                System.out.println("\nRodada " + rodada);
+                System.out.println("\n-.-.-.-.-.-.-.-.-.-.-.-.-.-\nRodada " + rodada + "\n-.-.-.-.-.-.-.-.-.-.-.-.-.-");
 
                 // Loop para permitir que cada jogador realize sua jogada:
                 for (Jogador jogador : players) {
                     if(jogador != null){
+                        System.out.println("\n" + jogador.getNome() + ", é a sua vez.");
+                        jogador.jogada();
+
                         if(jogador.getTipo() == 'H' || jogador.getTipo() == 'h'){
-                            System.out.println(jogador.getNome() + ", é a sua vez.");
-                            jogador.jogada();
-                            
                             int guia = 0; 
                             int escolha;
+
                             while(guia == 0){
                                 do{
                                     System.out.println("Escolha uma jogada:");
@@ -104,9 +111,6 @@ public class Campeonato implements Serializable{
                         }
 
                         if(jogador.getTipo() == 'M' || jogador.getTipo() == 'm'){
-                            System.out.println(jogador.getNome() + ", é a sua vez.");
-                            jogador.jogada();
-
                             int melhorJogada = 1;
                             int melhorPontuacao = 0;
                         
@@ -138,7 +142,7 @@ public class Campeonato implements Serializable{
             }
         }
 
-        System.out.println("A vencedora eh " + players[maiorInd].getNome() + " com " + maior + " pontos. ");
+        System.out.println("\nQuem venceu foi " + players[maiorInd].getNome() + ", com " + maior + " pontos. ");
     }
 
     public void gravarEmArquivo(){
