@@ -176,4 +176,282 @@ public class Campeonato implements Serializable{
 		}
     }
 
+    public void mostrarCartela(){
+        JogoGeneral aux;
+        int[] x;
+        String s = new String();
+
+        System.out.println("---- Cartela de Resultados ----\n");
+
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                s = s + "    " + players[i].getNome() + "(" + players[i].getTipo() + ")";
+            }
+        }
+        System.out.printf(s +"\n");
+        
+        for(int j=1;j<=13;j++){
+            s = "";
+            s = s + j;
+            if(j==7){
+                s=s+"(T)";
+            }
+            else if(j==8){
+                s=s+"(Q)";
+            }
+            else if(j==9){
+                s=s+"(F)";
+            }
+            else if(j==10){
+                s=s+"(S+)";
+            }
+            else if(j==11){
+                s=s+"(S-)";
+            }
+            else if(j==12){
+                s=s+"(G)";
+            }
+            else if(j==13){
+                s=s+"(X)";
+            }
+
+            s=s+"   ";
+            for(int i=0; i < players.length; i++){
+                if(players[i]!= null){
+                    aux = players[i].getJogo();
+                    x = aux.getJogadas();
+
+                    if(x[j] == -1){
+                        s = s + "   " + "-";
+                    }
+                    else{
+                        s = s + "    " + x[j];
+                    }
+                }
+            }
+            s = s+"\n";
+            System.out.println(s);
+        }
+
+        /*System.out.println("1");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[0] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[0];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("2");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[1] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[1];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("3");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[2] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[2];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("4");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[3] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[3];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("5");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[4] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[4];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("6");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[5] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[5];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("7(T)");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[6] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[6];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("8(Q)");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[7] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[7];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("9(F)");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[8] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[8];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("10(S+)");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[9] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[9];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("11(S-)");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[10] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[10];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("12(G)");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[11] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[11];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";
+
+        System.out.println("13(X)");
+        for(int i=0; i < players.length; i++){
+            if(players[i]!= null){
+                aux = players[i].getJogo();
+                x = aux.getJogadas();
+
+                if(x[12] == -1){
+                    s = s + "   " + "-";
+                }
+                else{
+                    s = s + "    " + x[12];
+                }
+            }
+        }
+        System.out.printf(s +"\n");
+        s = "";*/
+    }
 }

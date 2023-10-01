@@ -18,6 +18,10 @@ public class JogoGeneral implements Serializable {
         }
     }
 
+    public int[] getJogadas() {
+        return jogadas;
+    }
+
     public void setJogada(int i, int pontuacao){
         this.jogadas[i - 1] = pontuacao;
     }

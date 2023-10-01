@@ -17,7 +17,11 @@ public class Jogador implements Serializable {
     public char getTipo() {
         return tipo;
     }
-    
+
+    public JogoGeneral getJogo() {
+        return jogo;
+    }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -49,7 +53,7 @@ public class Jogador implements Serializable {
        jogo.rolarDados();
        String s = jogo.toString(); 
 
-       System.out.print(s);
+       System.out.printf(s);
     }
 
     public boolean validar(int escolha){

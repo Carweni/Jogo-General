@@ -52,7 +52,7 @@ public class UsaCampeonato {
                     else{
                         System.out.println("Numero maximo de jogadores atingido!!! Nao foi possivel incluir");
                     }
-    
+                    
                     break;
                 case 'b': // Se a escolha foi 'b', remove-se um jogador:
                     System.out.println("Informe o apelido(nickname) do jogador a ser excluido: ");
@@ -72,7 +72,7 @@ public class UsaCampeonato {
                     league.iniciarCampeonato();
                     break;
                 case 'd': // Se a escolha foi 'd', mostra-se a cartela:
-                    //league.mostrarCartela();
+                    league.mostrarCartela();
     
                     break;
                 case 'e': // Se a escolha foi 'e', grava-se a partida em arquivo:
