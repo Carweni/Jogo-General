@@ -83,6 +83,10 @@ public class Campeonato implements Serializable{
                             if (confirma == 'N' || confirma == 'n') {
                                 // Se o jogador escolheu pular a vez...
                                 int jogadaAleatoria = random.nextInt(13) + 1;
+                                while(!jogador.validar(jogadaAleatoria)){
+                                    jogadaAleatoria = random.nextInt(13) + 1;
+                                }
+
                                 System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
                                 jogador.gravarPontos(jogadaAleatoria, 0); // ...Zera-se uma jogada aleatória
                             }
