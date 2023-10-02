@@ -10,6 +10,12 @@ import java.util.Random;
 public class Campeonato implements Serializable{
     private Jogador[] players = new Jogador[10];
 
+    // Retorna o tamanho do vetor players(a quantidade de jogadores queeh permitido adicionar):
+    public int getLength(){
+        return players.length;
+    }
+
+    // Acha um indice livre para adicionar um jogador novo: 
     public int jogadorLivre(){
         int i = 0;
 
@@ -20,8 +26,10 @@ public class Campeonato implements Serializable{
         return i;
     }
 
+    // Verifica se ha jogadores registrados ou nao:
     public boolean jogadorVazio(){
         boolean x = true;
+
         for(int i = 0; i < players.length; i++){
             if(players[i] != null){
                 if(players[i].getNome() != null){
@@ -33,20 +41,22 @@ public class Campeonato implements Serializable{
         return x;
     }
 
+    // Inclui jogadores pelo indice encontrado por jogadorLivre():
     public void incluirJogador(String nome, char tipo, int i){
-        // Caso o array esteja cheio, nao adiciona o jogador:
+        // Se a posicao ja estiver livre, cria um novo jogador.
         if(players[i] == null && i < 10){
             players[i] = new Jogador(nome, tipo);
-        }
-        // Caso tenha um espaco que nao ultrapasse os limites de tamanho do vetor jogador, adiciona um novo: 
+        } 
+        // Caso contrario, sobrescreve:
         else if(players[i] != null && i < players.length){
             players[i].setNome(nome);
             players[i].setTipo(tipo);
         }      
     }
 
+    // Remove jogadores pelo nome:
     public boolean removerJogador(String nome){        
-        // Percorre array de jogador, procurando pelo nome. Caso não ache, retorna falso:
+        // Percorre array de jogador, procurando pelo nome. Caso nao ache, retorna falso:
         if(this.players != null){
             for(int i = 0; i < 5; i++){
                 if(this.players[i] != null){
@@ -57,6 +67,7 @@ public class Campeonato implements Serializable{
                 }
             }
         }
+
         return false;
     }
 
