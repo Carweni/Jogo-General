@@ -21,11 +21,11 @@ public class Campeonato implements Serializable{
     }
 
     public boolean jogadorVazio(){
-        boolean x= true;
-        for(int i=0; i<players.length;i++){
-            if(players[i]!=null){
-                if(players[i].getNome()!=null){
-                    x= false;
+        boolean x = true;
+        for(int i = 0; i < players.length; i++){
+            if(players[i] != null){
+                if(players[i].getNome() != null){
+                    x = false;
                 }
             }
         }
@@ -51,8 +51,7 @@ public class Campeonato implements Serializable{
             for(int i = 0; i < 5; i++){
                 if(this.players[i] != null){
                     if(this.players[i].getNome().equals(nome)){
-                        players[i].setNome(null); 
-                        players[i].setTipo(' ');
+                        this.players[i] = null;
                         return true;
                     }
                 }
