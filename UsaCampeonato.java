@@ -9,8 +9,8 @@ public class UsaCampeonato {
         Campeonato league = new Campeonato();
 
         System.out.println(":..::..: Menu interativo :..::..: ");
-        System.out.println("a - Incluir jogador"); // Informar nome e tipo.
-        System.out.println("b - Remover jogador"); // Remover pelo nome.
+        System.out.println("a - Incluir jogador"); 
+        System.out.println("b - Remover jogador"); 
         System.out.println("c - Executar rodada"); 
         System.out.println("d - Mostrar cartela de resultados"); 
         System.out.println("e - Gravar os resultados em arquivo"); 
@@ -37,7 +37,7 @@ public class UsaCampeonato {
                     char tipo;
                     int n = league.jogadorLivre();
 
-                    if(n >= 0 && n < 10){
+                    if(n < league.getLength()){
                         do{
                             System.out.println("Informe o tipo do jogador(H - Humano ou M - Maquina): ");
                             tipo = tec.next().charAt(0);
