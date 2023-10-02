@@ -29,7 +29,7 @@ public class JogoGeneral implements Serializable {
     public void rolarDados(){ // Aos 5 dados serao atribuidos valores entre 1 e 6, referentes as suas faces superiores 
         int i;
         
-        for(i = 0; i < 5; i++){
+        for(i = 0; i < this.dice.length; i++){
             this.dice[i].roll();
         }
     }

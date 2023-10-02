@@ -83,7 +83,7 @@ public class Campeonato implements Serializable{
         else{
             for(Jogador jog : players){
                 if(jog != null){
-                    jog.inicializarPartida();
+                    jog.inicializarPartida(); // Todas as jogadas precisam ser anuladas para uma nova partida ser iniciada.
                 }
             }
 
@@ -100,21 +100,21 @@ public class Campeonato implements Serializable{
                             int guia = 0; 
                             int escolha;
 
-                            System.out.println("Deseja jogar (S/N)? ");
+                            System.out.println("Quer pular a vez (Se sim, digite P)? ");
                             confirma = teclado.next().charAt(0);
         
-                            if (confirma == 'N' || confirma == 'n') {
-                                // Se o jogador escolheu pular a vez...
+                            if (confirma == 'P' || confirma == 'p') {
+                                // Se o jogador escolheu pular a vez, escolhe-se uma jogada aleatoria...
                                 int jogadaAleatoria = random.nextInt(13) + 1;
                                 while(!jogador.validar(jogadaAleatoria)){
                                     jogadaAleatoria = random.nextInt(13) + 1;
                                 }
 
                                 System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
-                                jogador.gravarPontos(jogadaAleatoria, 0); // ...Zera-se uma jogada aleatória
+                                jogador.gravarPontos(jogadaAleatoria, 0); // ...e atribui zero a ela.
                             }
                             else{
-                                while(guia == 0){
+                                while(guia == 0){ // O guia grava se a jogada foi ou nao confirmada.
                                     do{
                                         System.out.println("Escolha uma jogada:");
                                         escolha = teclado.nextInt();
@@ -177,8 +177,8 @@ public class Campeonato implements Serializable{
             }
             
             for (int k = 0; k < 10; k++){
-                if(players[k] != null){
-                    tot = players[k].total();
+                if(this.players[k] != null){
+                    tot = this.players[k].total();
                     if(tot > maior){
                         maior = tot;
                         maiorInd = k;
@@ -186,7 +186,7 @@ public class Campeonato implements Serializable{
                 }
             }
     
-            System.out.println("\nQuem venceu foi " + players[maiorInd].getNome() + ", com " + maior + " pontos. ");
+            System.out.println("\nQuem venceu foi " + this.players[maiorInd].getNome() + ", com " + maior + " pontos. ");
         }
     }
 
