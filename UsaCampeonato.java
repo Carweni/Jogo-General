@@ -88,10 +88,10 @@ public class UsaCampeonato {
                 case 'g': // Se a escolha foi 'g', sai da aplicacao:
                     sair = 1;
                     break;
-                case 'm':
+                case 'm': // Mostra o menu novamente
                     System.out.println(":..::..: Menu interativo :..::..: ");
-                    System.out.println("a - Incluir jogador"); // Informar nome e tipo.
-                    System.out.println("b - Remover jogador"); // Remover pelo nome.
+                    System.out.println("a - Incluir jogador");
+                    System.out.println("b - Remover jogador");
                     System.out.println("c - Executar rodada"); 
                     System.out.println("d - Mostrar cartela de resultados"); 
                     System.out.println("e - Gravar os resultados em arquivo"); 

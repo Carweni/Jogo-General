@@ -19,7 +19,20 @@ public class Campeonato implements Serializable{
 
         return i;
     }
-    
+
+    public boolean jogadorVazio(){
+        boolean x= true;
+        for(int i=0; i<players.length;i++){
+            if(players[i]!=null){
+                if(players[i].getNome()!=null){
+                    x= false;
+                }
+            }
+        }
+        
+        return x;
+    }
+
     public void incluirJogador(String nome, char tipo, int i){
         // Caso o array esteja cheio, nao adiciona o jogador:
         if(players[i] == null && i < 10){
@@ -54,7 +67,7 @@ public class Campeonato implements Serializable{
         int maior = 0, tot = 0, maiorInd = 0;
         Random random = new Random();
 
-        if(players.length == 0){
+        if(this.jogadorVazio()){
             System.out.println("Nenhum jogador foi registrado! ");
         }
         else{
@@ -149,19 +162,19 @@ public class Campeonato implements Serializable{
                     }
                 }
             }
-        }
-
-        for (int k = 0; k < 10; k++){
-            if(players[k] != null){
-                tot = players[k].total();
-                if(tot > maior){
-                    maior = tot;
-                    maiorInd = k;
+            
+            for (int k = 0; k < 10; k++){
+                if(players[k] != null){
+                    tot = players[k].total();
+                    if(tot > maior){
+                        maior = tot;
+                        maiorInd = k;
+                    }
                 }
             }
+    
+            System.out.println("\nQuem venceu foi " + players[maiorInd].getNome() + ", com " + maior + " pontos. ");
         }
-
-        System.out.println("\nQuem venceu foi " + players[maiorInd].getNome() + ", com " + maior + " pontos. ");
     }
 
     public void gravarEmArquivo(){
