@@ -35,9 +35,9 @@ public class UsaCampeonato {
                     System.out.println("Informe o apelido(nickname) do jogador a ser adicionado: ");
                     String nome = tec.nextLine();
                     char tipo;
-                    int n = league.jogadoresCheio();
+                    int n = league.jogadorLivre();
 
-                    if(n >= 0 && n < 5){
+                    if(n >= 0 && n < 10){
                         do{
                             System.out.println("Informe o tipo do jogador(H - Humano ou M - Maquina): ");
                             tipo = tec.next().charAt(0);
@@ -88,7 +88,7 @@ public class UsaCampeonato {
                 case 'g': // Se a escolha foi 'g', sai da aplicacao:
                     sair = 1;
                     break;
-                case 'm': // Se a escolha foi 'm', imprime-se o menu novamente:
+                case 'm':
                     System.out.println(":..::..: Menu interativo :..::..: ");
                     System.out.println("a - Incluir jogador");
                     System.out.println("b - Remover jogador");

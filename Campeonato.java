@@ -10,7 +10,7 @@ import java.util.Random;
 public class Campeonato implements Serializable{
     private Jogador[] players = new Jogador[10];
 
-    public int jogadoresCheio(){
+    public int jogadorLivre(){
         int i = 0;
 
         while(i <= 9 && players[i] != null && players[i].getNome() != null){
