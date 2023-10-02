@@ -189,7 +189,7 @@ public class JogoGeneral implements Serializable {
         int total = 0;
 
         for(int i = 0; i < 13; i++){
-            total += jogadas[i];
+            total += this.jogadas[i];
         }
 
         return total;

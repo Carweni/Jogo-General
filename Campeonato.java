@@ -104,7 +104,6 @@ public class Campeonato implements Serializable{
                                 jogador.gravarPontos(jogadaAleatoria, 0); // ...Zera-se uma jogada aleatória
                             }
                             else{
-
                                 while(guia == 0){
                                     do{
                                         System.out.println("Escolha uma jogada:");
@@ -121,19 +120,23 @@ public class Campeonato implements Serializable{
                                         int pontuacao = jogador.pontuar(escolha);
 
                                         System.out.println("Essa jogada gera o seguinte numero de pontos: " + pontuacao);
+                                        // O jogador deve decidir se quer validar a jogada:
                                         do{
                                             System.out.println("Deseja confirma-la(S/N)? ");
                                             confirma = teclado.next().charAt(0);
                                         }while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
 
+                                        // Se o jogador confirmar, a escolha sera validada e a ponntuacao, gravada:
                                         if(confirma == 'S' || confirma == 's'){
                                             jogador.gravarPontos(escolha, pontuacao);
                                             guia = 1;
                                         }
+                                        // Se a jogada for negada, outra sera pedida.
                                         else if(confirma == 'N' || confirma == 'n'){
                                             System.out.print("Ok. ");
                                         }
                                     } 
+                                    // Se a jogada estiver indisponivel, pede-se para informar outra:
                                     else {
                                         System.out.println("Jogada inválida. Escolha outra jogada.");
                                     }
@@ -203,20 +206,19 @@ public class Campeonato implements Serializable{
 			players = (Jogador[])oin.readObject();
 			oin.close();
 			fin.close();
+            mostrarCartela();
 		}catch (Exception ex) {
 			System.err.println("erro: " + ex.toString());
 		}
     }
 
     public void mostrarCartela(){
-        JogoGeneral aux;
-        int[] x;
         String s = new String();
 
         System.out.println("---- Cartela de Resultados ----\n \t");
 
         for(int i = 0; i < players.length; i++){
-            if(players[i]!= null){
+            if(players[i] != null){
                 s = s + "\t" + players[i].getNome() + "(" + players[i].getTipo() + ")";
             }
         }
@@ -231,26 +233,26 @@ public class Campeonato implements Serializable{
             else if(j == 8){
                 s = s + "(Q)  ";
             }
-            else if(j==9){
-                s=s+"(F)  ";
+            else if(j == 9){
+                s = s + "(F)  ";
             }
-            else if(j==10){
-                s=s+"(S+)";
+            else if(j == 10){
+                s = s + "(S+)";
             }
-            else if(j==11){
-                s=s+"(S-)";
+            else if(j == 11){
+                s = s + "(S-)";
             }
-            else if(j==12){
-                s=s+"(G) ";
+            else if(j == 12){
+                s = s + "(G) ";
             }
-            else if(j==13){
-                s=s+"(X) ";
+            else if(j == 13){
+                s = s + "(X) ";
             }
             else{
                 s = s + "     ";
             }
 
-            s=s+"   ";
+            s = s + "   ";
             for(int i = 0; i < players.length; i++){
                 if(players[i]!= null){
                     s += players[i].cartela(j);

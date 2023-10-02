@@ -68,7 +68,7 @@ public class UsaCampeonato {
                     }
                     
                     break;
-                case 'c': // Se a escolha foi 'c', executa-se a rodada:
+                case 'c': // Se a escolha foi 'c', executa-se uma nova rodada:
                     league.iniciarCampeonato();
                     break;
                 case 'd': // Se a escolha foi 'd', mostra-se a cartela:
@@ -88,7 +88,7 @@ public class UsaCampeonato {
                 case 'g': // Se a escolha foi 'g', sai da aplicacao:
                     sair = 1;
                     break;
-                case 'm': // Mostra o menu novamente
+                case 'm': // Se a escolha foi 'm', imprime-se o menu novamente:
                     System.out.println(":..::..: Menu interativo :..::..: ");
                     System.out.println("a - Incluir jogador");
                     System.out.println("b - Remover jogador");
@@ -101,8 +101,8 @@ public class UsaCampeonato {
             }
         }
 
+        // Fecha-se o teclado:
         tec.close();
-
     }
     
 }
