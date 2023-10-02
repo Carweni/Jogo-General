@@ -71,4 +71,10 @@ public class Jogador implements Serializable {
     public int total(){
         return jogo.calculaTotal();
     }
+
+    public String cartela(int i){
+        String s = new String();
+        s = jogo.montarTabela(i);
+        return s;
+    }
 }

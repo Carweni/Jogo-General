@@ -194,4 +194,17 @@ public class JogoGeneral implements Serializable {
 
         return total;
     }
+
+    public String montarTabela(int i){
+        String s = new String();
+
+        if(jogadas[i - 1] == -1){
+            s = s + "\t-";
+        }
+        else{
+            s = s + "\t" + jogadas[i - 1];
+        }
+
+        return s;
+    }
 }
