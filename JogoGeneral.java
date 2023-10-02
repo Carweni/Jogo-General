@@ -199,10 +199,10 @@ public class JogoGeneral implements Serializable {
         String s = new String();
 
         if(jogadas[i - 1] == -1){
-            s = s + "\t-";
+            s = s + "-\t";
         }
         else{
-            s = s + "\t" + jogadas[i - 1];
+            s = s + jogadas[i - 1] + "\t";
         }
 
         return s;

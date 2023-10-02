@@ -32,16 +32,10 @@ public class Jogador implements Serializable {
 
     public String toString(){
         String s = new String();
-        s = "Nome: " + this.nome;
-
-        if(this.tipo == 'H'){
-            s = s + " - Tipo: Humano";
+        s = "1\t2\t3\t4\t5\t6\t7(T)\t8(Q)\t9(F)\t10(S+)\t11(S-)\t12(G)\t13(X)\n";
+        for(int i=1;i<=13;i++){
+            s = s + this.cartela(i);
         }
-        else if(this.tipo == 'M'){
-            s = s + " - Tipo: Maquina";
-        }
-
-        s = s + "\n" + jogo.toString();
         return s;
     }
 

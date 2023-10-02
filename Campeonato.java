@@ -84,6 +84,8 @@ public class Campeonato implements Serializable{
                     if(jogador != null){
                         System.out.println("\n" + jogador.getNome() + ", é a sua vez.");
                         jogador.jogada();
+                        System.out.println(jogador.toString());
+
 
                         if(jogador.getTipo() == 'H' || jogador.getTipo() == 'h'){
                             int guia = 0; 
