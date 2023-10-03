@@ -30,7 +30,7 @@ public class Jogador implements Serializable {
         this.tipo = tipo;
     }
 
-    public String toString(){
+    public String mostraJogadasExecutadas(){
         String s = new String();
         s = "1\t2\t3\t4\t5\t6\t7(T)\t8(Q)\t9(F)\t10(S+)\t11(S-)\t12(G)\t13(X)\n";
         for(int i=1;i<=13;i++){

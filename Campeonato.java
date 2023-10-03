@@ -95,17 +95,22 @@ public class Campeonato implements Serializable{
                     if(jogador != null){
                         System.out.println("\n" + jogador.getNome() + ", é a sua vez.");
                         jogador.jogada();
-                        System.out.println(jogador.toString());
+                        System.out.println(jogador.mostraJogadasExecutadas());
 
 
                         if(jogador.getTipo() == 'H' || jogador.getTipo() == 'h'){
                             int guia = 0; 
                             int escolha;
 
-                            System.out.println("Quer pular a vez (Se sim, digite P)? ");
-                            confirma = teclado.next().charAt(0);
+                            do{
+                                System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez): ");
+                                    escolha = teclado.nextInt();
+                                    if(escolha < 1 || escolha > 13){
+                                        System.out.println("Favor, informar um numero entre 0 e 13. ");
+                                    }    
+                            }while(escolha < 0 || escolha > 13);
         
-                            if (confirma == 'P' || confirma == 'p') {
+                            if (escolha == 0) {
                                 // Se o jogador escolheu pular a vez, escolhe-se uma jogada aleatoria...
                                 int jogadaAleatoria = random.nextInt(13) + 1;
                                 while(!jogador.validar(jogadaAleatoria)){
@@ -117,15 +122,6 @@ public class Campeonato implements Serializable{
                             }
                             else{
                                 while(guia == 0){ // O guia grava se a jogada foi ou nao confirmada.
-                                    do{
-                                        System.out.println("Escolha uma jogada:");
-                                        escolha = teclado.nextInt();
-
-                                        if(escolha < 1 || escolha > 13){
-                                            System.out.println("Favor, informar um numero entre 1 e 13. ");
-                                        }    
-                                    }while(escolha < 1 || escolha > 13);
-
                                     // Verificar se a jogada é válida:
                                     if (jogador.validar(escolha)) {
                                         // Calcular a pontuação da jogada:
@@ -146,6 +142,7 @@ public class Campeonato implements Serializable{
                                         // Se a jogada for negada, outra sera pedida.
                                         else if(confirma == 'N' || confirma == 'n'){
                                             System.out.print("Ok. ");
+                                            teclado.nextLine();
                                         }
                                     } 
                                     // Se a jogada estiver indisponivel, pede-se para informar outra:
@@ -158,7 +155,7 @@ public class Campeonato implements Serializable{
                         }
 
                         if(jogador.getTipo() == 'M' || jogador.getTipo() == 'm'){
-                            int melhorJogada = 1;
+                            int melhorJogada = -1;
                             int melhorPontuacao = 0;
                         
                             for (int choice = 1; choice <= 13; choice++) {
@@ -169,6 +166,14 @@ public class Campeonato implements Serializable{
                                         melhorJogada = choice;
                                     }
                                 }
+                            }
+
+                            if(melhorJogada == -1){
+                                melhorJogada = random.nextInt(13) + 1;
+                                while(!jogador.validar(melhorJogada)){
+                                    melhorJogada = random.nextInt(13) + 1;
+                                }
+                                melhorPontuacao = 0;
                             }
                         
                             System.out.println("Essa jogada gera o seguinte numero de pontos: " + melhorPontuacao);
