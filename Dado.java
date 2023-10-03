@@ -18,7 +18,7 @@ public class Dado implements Serializable{
         }
 
         public String toStringDado(){ // Imprime a face superior do dado.  
-            return "" + this.faceSup;
+            return Integer.toString(faceSup);
         }
     
 }

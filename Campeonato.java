@@ -4,8 +4,6 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.Scanner;
-import java.util.Random;
 
 public class Campeonato implements Serializable{
     private Jogador[] players = new Jogador[10];
@@ -72,10 +70,7 @@ public class Campeonato implements Serializable{
     }
 
     public void iniciarCampeonato(){
-        Scanner teclado = new Scanner(System.in);
-        char confirma;
         int maior = 0, tot = 0, maiorInd = 0;
-        Random random = new Random();
 
         if(this.jogadorVazio()){
             System.out.println("Nenhum jogador foi registrado! ");
@@ -93,93 +88,8 @@ public class Campeonato implements Serializable{
                 // Loop para permitir que cada jogador realize sua jogada:
                 for (Jogador jogador : players) {
                     if(jogador != null){
-                        System.out.println("\n" + jogador.getNome() + ", é a sua vez.");
-                        jogador.jogada();
-                        System.out.println(jogador.mostraJogadasExecutadas());
-
-
-                        if(jogador.getTipo() == 'H' || jogador.getTipo() == 'h'){
-                            int guia = 0; 
-                            int escolha;
-
-                            do{
-                                System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez): ");
-                                    escolha = teclado.nextInt();
-                                    if(escolha < 1 || escolha > 13){
-                                        System.out.println("Favor, informar um numero entre 0 e 13. ");
-                                    }    
-                            }while(escolha < 0 || escolha > 13);
-        
-                            if (escolha == 0) {
-                                // Se o jogador escolheu pular a vez, escolhe-se uma jogada aleatoria...
-                                int jogadaAleatoria = random.nextInt(13) + 1;
-                                while(!jogador.validar(jogadaAleatoria)){
-                                    jogadaAleatoria = random.nextInt(13) + 1;
-                                }
-
-                                System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
-                                jogador.gravarPontos(jogadaAleatoria, 0); // ...e atribui zero a ela.
-                            }
-                            else{
-                                while(guia == 0){ // O guia grava se a jogada foi ou nao confirmada.
-                                    // Verificar se a jogada é válida:
-                                    if (jogador.validar(escolha)) {
-                                        // Calcular a pontuação da jogada:
-                                        int pontuacao = jogador.pontuar(escolha);
-
-                                        System.out.println("Essa jogada gera o seguinte numero de pontos: " + pontuacao);
-                                        // O jogador deve decidir se quer validar a jogada:
-                                        do{
-                                            System.out.println("Deseja confirma-la(S/N)? ");
-                                            confirma = teclado.next().charAt(0);
-                                        }while(confirma != 's' && confirma != 'S' && confirma != 'n' && confirma != 'N');
-
-                                        // Se o jogador confirmar, a escolha sera validada e a ponntuacao, gravada:
-                                        if(confirma == 'S' || confirma == 's'){
-                                            jogador.gravarPontos(escolha, pontuacao);
-                                            guia = 1;
-                                        }
-                                        // Se a jogada for negada, outra sera pedida.
-                                        else if(confirma == 'N' || confirma == 'n'){
-                                            System.out.print("Ok. ");
-                                            teclado.nextLine();
-                                        }
-                                    } 
-                                    // Se a jogada estiver indisponivel, pede-se para informar outra:
-                                    else {
-                                        System.out.println("Jogada inválida. Escolha outra jogada.");
-                                    }
-                                }
-                            }
-                            
-                        }
-
-                        if(jogador.getTipo() == 'M' || jogador.getTipo() == 'm'){
-                            int melhorJogada = -1;
-                            int melhorPontuacao = 0;
-                        
-                            for (int choice = 1; choice <= 13; choice++) {
-                                if (jogador.validar(choice)) {
-                                    int pontuacao = jogador.pontuar(choice);
-                                    if (pontuacao > melhorPontuacao) {
-                                        melhorPontuacao = pontuacao;
-                                        melhorJogada = choice;
-                                    }
-                                }
-                            }
-
-                            if(melhorJogada == -1){
-                                melhorJogada = random.nextInt(13) + 1;
-                                while(!jogador.validar(melhorJogada)){
-                                    melhorJogada = random.nextInt(13) + 1;
-                                }
-                                melhorPontuacao = 0;
-                            }
-                        
-                            System.out.println("Essa jogada gera o seguinte numero de pontos: " + melhorPontuacao);
-                            jogador.gravarPontos(melhorJogada, melhorPontuacao);
-                        }
-                    }
+                        jogador.escolherJogada();
+                    }     
                 }
             }
             
