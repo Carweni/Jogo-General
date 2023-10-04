@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Campeonato implements Serializable{
     private Jogador[] players = new Jogador[10];
 
-    // Retorna o tamanho do vetor players(a quantidade de jogadores queeh permitido adicionar):
+    // Retorna o tamanho do vetor players(a quantidade de jogadores que eh permitido adicionar):
     public int getLength(){
         return players.length;
     }
@@ -54,7 +54,7 @@ public class Campeonato implements Serializable{
 
     // Remove jogadores pelo nome:
     public boolean removerJogador(String nome){        
-        // Percorre array de jogador, procurando pelo nome. Caso nao ache, retorna falso:
+        // Percorre array de jogador, procurando pelo nome. Caso encontre, retorna true. Caso nao, retorna falso:
         if(this.players != null){
             for(int i = 0; i < 5; i++){
                 if(this.players[i] != null){
@@ -69,12 +69,15 @@ public class Campeonato implements Serializable{
         return false;
     }
 
+    // Inicia a partida do jogo General:
     public void iniciarCampeonato(){
         int maior = 0, tot = 0, maiorInd = 0;
 
+        // Se nenhum jogador tiver sido registrado, a partida nao sera iniciada:
         if(this.jogadorVazio()){
             System.out.println("Nenhum jogador foi registrado! ");
         }
+        // Se tiver ao menos um jogador registrado, o jogo sera iniciado:
         else{
             for(Jogador jog : players){
                 if(jog != null){
@@ -82,6 +85,7 @@ public class Campeonato implements Serializable{
                 }
             }
 
+            // Como sao 13 as jogadas permitidas, cada partida tera 13 rodadas:
             for (int rodada = 1; rodada <= 13; rodada++) {
                 System.out.println("\n-.-.-.-.-.-.-.-.-.-.-.-.-.-\nRodada " + rodada + "\n-.-.-.-.-.-.-.-.-.-.-.-.-.-");
 
@@ -93,6 +97,7 @@ public class Campeonato implements Serializable{
                 }
             }
             
+            // Para definir o ganhador, calcula-se qual jogador conseguiu o maior numero de pontos:
             for (int k = 0; k < 10; k++){
                 if(this.players[k] != null){
                     tot = this.players[k].total();
@@ -103,11 +108,14 @@ public class Campeonato implements Serializable{
                 }
             }
     
+            // Informa-se o vencedor:
             System.out.println("\nQuem venceu foi " + this.players[maiorInd].getNome() + ", com " + maior + " pontos. ");
         }
     }
 
+    // O seguinte metodo grava os dados de uma partida em arquivo:
     public void gravarEmArquivo(){
+        // O nome do arquivo criado sera Campeonato.dat:
 		File arquivo = new File("Campeonato.dat");
 
         try {
@@ -123,6 +131,7 @@ public class Campeonato implements Serializable{
         }
     }
 
+    // O seguinte metodo abre o arquivo Campeonato.dat e imprime os dados da partida gravada:
     public void lerDoArquivo(){
         File arquivo = new File("Campeonato.dat");
 
@@ -133,12 +142,14 @@ public class Campeonato implements Serializable{
 			players = (Jogador[])oin.readObject();
 			oin.close();
 			fin.close();
-            mostrarCartela();
+            mostrarCartela(); // A cartela imprimira todas os jogadores, jogadas e pontuacoes da partida salva.
 		}catch (Exception ex) {
 			System.err.println("erro: " + ex.toString());
 		}
     }
 
+    /* O seguinte metodo vai imprimir uma tabela cujos conteudos sao o nome dos jogadores,
+       seus tipos, pontuacoes por rodada, e pontuacao total: */
     public void mostrarCartela(){
         String s = new String();
 
@@ -189,11 +200,13 @@ public class Campeonato implements Serializable{
             System.out.println(s);
         }
         s = "------------------------------------\n Total\t";
+
         for(int i = 0; i < players.length; i++){
             if(players[i]!= null){
                 s += players[i].total() + "\t";
             }
         }
+        
         System.out.println(s);
     }
 }

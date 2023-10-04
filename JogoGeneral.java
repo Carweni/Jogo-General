@@ -27,15 +27,11 @@ public class JogoGeneral implements Serializable {
         }
     }
 
-    public int[] getJogadas() {
-        return jogadas;
-    }
-
     public void setJogada(int i, int pontuacao){
-        this.jogadas[i - 1] = pontuacao;
+        this.jogadas[i - 1] = pontuacao;    // Marca a pontuacao da jogada em sua posicao no vetor.
     }
 
-    public void rolarDados(){ // Aos 5 dados serao atribuidos valores entre 1 e 6, referentes as suas faces superiores 
+    public void rolarDados(){ // Aos 5 dados serao atribuidos valores entre 1 e 6, referentes as suas faces superiores.
         int i;
         
         for(i = 0; i < this.dice.length; i++){
@@ -63,6 +59,7 @@ public class JogoGeneral implements Serializable {
         return str;
     }
 
+    // O seguinte metodo retorna false para jogadas ja executadas e true para as disponiveis:
     public boolean validarJogada(int n){
         if(jogadas[n - 1] == -1){
             return true;
@@ -72,6 +69,7 @@ public class JogoGeneral implements Serializable {
         }
     }
 
+    // O seguinte metodo verifica qual jogada foi escolhida e retorna a pontuacao que ela rende:
     public int pontuarJogada(int n){
         int i, j;
         int[] armazenaValores = new int[6];
@@ -193,7 +191,8 @@ public class JogoGeneral implements Serializable {
 
         return 0;
     }
-    
+   
+    // O seguinte metodo calcula a pontuacao total de um jogador:
     public int calculaTotal(){
         int total = 0;
 
@@ -204,6 +203,7 @@ public class JogoGeneral implements Serializable {
         return total;
     }
 
+    // O seguinte metodo grava em string a pontuacao de uma jogada especifica:
     public String montarTabela(int i){
         String s = new String();
 
