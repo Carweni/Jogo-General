@@ -33,6 +33,7 @@ public class UsaCampeonato {
             switch(op){
                 case 'a': // Se a escolha foi 'a', incluie-se um jogador:
                     char tipo;
+                    String nome;
                     int n = league.jogadorLivre();
                     String nome;
 
