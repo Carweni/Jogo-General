@@ -72,7 +72,7 @@ public class Jogador implements Serializable {
         Scanner teclado = new Scanner(System.in);
         char confirma;
         Random random = new Random();
-        System.out.println("\n" + this.nome + ", é a sua vez.");
+        System.out.println("\n" + this.nome + "(" + this.tipo + ") , é a sua vez.\nRolando os dados...\nValores obtidos: ");
         this.jogada();
         System.out.println(mostraJogadasExecutadas());
 

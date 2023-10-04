@@ -34,11 +34,12 @@ public class UsaCampeonato {
                 case 'a': // Se a escolha foi 'a', incluie-se um jogador:
                     char tipo;
                     int n = league.jogadorLivre();
+                    String nome;
 
                     if(n < league.getLength()){
                         do{
                             System.out.println("Informe o apelido(nickname) do jogador a ser adicionado: ");
-                            String nome = tec.nextLine();
+                            nome = tec.nextLine();
                             System.out.println("Informe o tipo do jogador(H - Humano ou M - Maquina): ");
                             tipo = tec.next().charAt(0);
         
