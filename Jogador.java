@@ -7,28 +7,24 @@ public class Jogador implements Serializable {
     private char tipo;
     private JogoGeneral jogo = new JogoGeneral(-1);
 
-    public Jogador(String nome, char tipo) {
+    public Jogador(String nome, char tipo) { //Inicializa jogador
         this.nome = nome;
         this.tipo = tipo;
     }
 
-    public String getNome() {
+    public String getNome() { //Retorna o nome
         return nome;
     }
 
-    public char getTipo() {
+    public char getTipo() { //Retorna o tipo
         return tipo;
     }
 
-    public JogoGeneral getJogo() {
-        return jogo;
-    }
-
-    public void setNome(String nome) {
+    public void setNome(String nome) { //Altera nome
         this.nome = nome;
     }
 
-    public void setTipo(char tipo) {
+    public void setTipo(char tipo) { //Altera tipo
         this.tipo = tipo;
     }
 
@@ -47,22 +43,22 @@ public class Jogador implements Serializable {
         jogo.inicializarJogadas();
     }
 
-    public void jogada(){
+    public void jogada(){ //Efetua uma jogada, rolando os dados e imprimindo
        jogo.rolarDados();
        String s = jogo.toString(); 
 
        System.out.printf(s);
     }
 
-    public boolean validar(int escolha){
+    public boolean validar(int escolha){ //Valida a jogada
         return jogo.validarJogada(escolha);
     }
 
-    public int total(){
+    public int total(){ //Calcula pontuacao total
         return jogo.calculaTotal();
     }
 
-    public String cartela(int i){
+    public String cartela(int i){ //Retorna pontuacao de uma jogada especifica
         String s = new String();
         s = jogo.montarTabela(i);
         return s;
@@ -72,16 +68,18 @@ public class Jogador implements Serializable {
         Scanner teclado = new Scanner(System.in);
         char confirma;
         Random random = new Random();
-        System.out.println("\n" + this.nome + ", é a sua vez.");
+
+        System.out.println("\n" + this.nome + "(" + this.tipo + ") , é a sua vez.\nRolando os dados...\nValores obtidos: ");
         this.jogada();
         System.out.println(mostraJogadasExecutadas());
-
+        
+        //Verifica se jogador eh humano.
         if(this.tipo == 'H' || this.tipo == 'h'){
             int guia = 0; 
             int escolha;
 
             while(guia == 0){ // O guia grava se a jogada foi ou nao confirmada.
-                do{
+                do{ // Verifica se eh um numero valido
                     System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez): ");
                     escolha = teclado.nextInt();
                     
@@ -90,7 +88,7 @@ public class Jogador implements Serializable {
                     }    
                 }while(escolha < 0 || escolha > 13);
             
-                if (escolha == 0) {
+                if (escolha == 0) { //caso pule a vez
                     int jogadaAleatoria;
                     do {
                         jogadaAleatoria = random.nextInt(13) + 1;
@@ -134,10 +132,12 @@ public class Jogador implements Serializable {
                             
         }
 
+        //Verifica se o jogador eh maquina
         if(this.tipo == 'M' || this.tipo == 'm'){
             int melhorJogada = -1;
             int melhorPontuacao = 0;
-                        
+            
+            //Percorre jogadas para determinar a melhor
             for (int choice = 1; choice <= 13; choice++) {
                 if (validar(choice)) {
                     int pontuacao = jogo.pontuarJogada(choice);
@@ -148,6 +148,7 @@ public class Jogador implements Serializable {
                 }
             }
 
+            //caso todas as pontuacoes forem 0, escolhe uma aleatoria para zerar
             if(melhorJogada == -1){
                 melhorJogada = random.nextInt(13) + 1;
                 while(!validar(melhorJogada)){

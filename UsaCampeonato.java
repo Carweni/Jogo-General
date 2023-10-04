@@ -35,8 +35,9 @@ public class UsaCampeonato {
                     char tipo;
                     String nome;
                     int n = league.jogadorLivre();
+                    String nome;
 
-                    if(n < league.getLength()){
+                    if(n < league.getLength()){ //Verifica se não atingiu numero maximo de jogadores
                         do{
                             System.out.println("Informe o apelido(nickname) do jogador a ser adicionado: ");
                             nome = tec.nextLine();
@@ -89,7 +90,7 @@ public class UsaCampeonato {
                 case 'g': // Se a escolha foi 'g', sai da aplicacao:
                     sair = 1;
                     break;
-                case 'm':
+                case 'm': // Se a escolha foi 'm', mostra-se o menu novamente:
                     System.out.println(":..::..: Menu interativo :..::..: ");
                     System.out.println("a - Incluir jogador");
                     System.out.println("b - Remover jogador");
