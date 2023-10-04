@@ -99,6 +99,8 @@ public class UsaCampeonato {
                     System.out.println("f - Ler os dados em arquivo"); 
                     System.out.println("g - Sair do jogo"); 
                     break;
+                default:
+                    System.out.println("ERRO");
             }
         }
 
