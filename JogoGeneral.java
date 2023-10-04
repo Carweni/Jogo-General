@@ -12,6 +12,15 @@ public class JogoGeneral implements Serializable {
         }
     }
 
+    public JogoGeneral(int jogada){
+        for(int i = 0; i < 5; i++){
+            this.dice[i] = new Dado();  // Inicializa os dados.
+        }
+        for(int j = 0; j < 13; j++){
+            this.jogadas[j] = jogada;   // Se o indice marca -1, significa que a jogada ainda nao foi realizada.
+        }
+    }
+
     public void inicializarJogadas(){
         for(int j = 0; j < 13; j++){
             this.jogadas[j] = -1;   // Se o indice marca -1, significa que a jogada ainda nao foi realizada.

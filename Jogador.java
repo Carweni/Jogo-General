@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Jogador implements Serializable {
     private String nome = new String();
     private char tipo;
-    private JogoGeneral jogo = new JogoGeneral();
+    private JogoGeneral jogo = new JogoGeneral(-1);
 
     public Jogador(String nome, char tipo) {
         this.nome = nome;
@@ -80,26 +80,26 @@ public class Jogador implements Serializable {
             int guia = 0; 
             int escolha;
 
-            do{
-                System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez): ");
-                escolha = teclado.nextInt();
-                
-                if(escolha < 0 || escolha > 13){
-                    System.out.println("Favor, informar um numero entre 0 e 13. ");
-                }    
-            }while(escolha < 0 || escolha > 13);
-        
-            if (escolha == 0) {
-                int jogadaAleatoria;
-                do {
-                    jogadaAleatoria = random.nextInt(13) + 1;
-                } while (!this.validar(jogadaAleatoria));
+            while(guia == 0){ // O guia grava se a jogada foi ou nao confirmada.
+                do{
+                    System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez): ");
+                    escolha = teclado.nextInt();
+                    
+                    if(escolha < 0 || escolha > 13){
+                        System.out.println("Favor, informar um numero entre 0 e 13. ");
+                    }    
+                }while(escolha < 0 || escolha > 13);
             
-                System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
-                jogo.setJogada(jogadaAleatoria, 0); // Atribui zero a ela.
-            }
-            else{
-                while(guia == 0){ // O guia grava se a jogada foi ou nao confirmada.
+                if (escolha == 0) {
+                    int jogadaAleatoria;
+                    do {
+                        jogadaAleatoria = random.nextInt(13) + 1;
+                    } while (!this.validar(jogadaAleatoria));
+                
+                    System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
+                    jogo.setJogada(jogadaAleatoria, 0); // Atribui zero a ela.
+                }
+                else{
                     // Verificar se a jogada é válida:
                     if (validar(escolha)) {
                         // Calcular a pontuação da jogada:
