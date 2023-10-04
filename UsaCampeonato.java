@@ -35,7 +35,6 @@ public class UsaCampeonato {
                     char tipo;
                     String nome;
                     int n = league.jogadorLivre();
-                    String nome;
 
                     if(n < league.getLength()){ //Verifica se não atingiu numero maximo de jogadores
                         do{

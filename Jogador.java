@@ -69,7 +69,7 @@ public class Jogador implements Serializable {
         char confirma;
         Random random = new Random();
 
-        System.out.println("\n" + this.nome + "(" + this.tipo + ") , é a sua vez.\nRolando os dados...\nValores obtidos: ");
+        System.out.println("\n" + this.nome + "(" + this.tipo + ") , é a sua vez.\nRolando os dados... ");
         this.jogada();
         System.out.println(mostraJogadasExecutadas());
         

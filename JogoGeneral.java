@@ -43,7 +43,7 @@ public class JogoGeneral implements Serializable {
         int i;
         String str = new String();
 
-        System.out.println("Valores dos dados:");
+        System.out.println("Valores obtidos:");
 
         for(i = 0; i < 5; i++){
             str = str + this.dice[i].toStringDado();
