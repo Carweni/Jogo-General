@@ -188,5 +188,12 @@ public class Campeonato implements Serializable{
             s = s + "\n";
             System.out.println(s);
         }
+        s = "------------------------------------\n Total\t";
+        for(int i = 0; i < players.length; i++){
+            if(players[i]!= null){
+                s += players[i].total() + "\t";
+            }
+        }
+        System.out.println(s);
     }
 }
