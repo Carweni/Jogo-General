@@ -98,6 +98,7 @@ public class Jogador implements Serializable {
                 
                     System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
                     jogo.setJogada(jogadaAleatoria, 0); // Atribui zero a ela.
+                    guia = 1;
                 }
                 else{
                     // Verificar se a jogada é válida:

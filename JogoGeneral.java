@@ -102,7 +102,7 @@ public class JogoGeneral implements Serializable {
             int soma = 0;
 
             for(i = 0; i < 6; i++){
-                if(armazenaValores[i] == 3){
+                if(armazenaValores[i] >= 3){
                     for(j = 0; j < 5; j++){
                         soma += dice[j].getFaceSuperior();
                     }
@@ -116,7 +116,7 @@ public class JogoGeneral implements Serializable {
             int sum = 0;
 
             for(i = 0; i < 6; i++){
-                if(armazenaValores[i] == 3){
+                if(armazenaValores[i] >= 4){
                     for(j = 0; j < 5; j++){
                         sum += dice[j].getFaceSuperior();
                     }
