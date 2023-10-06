@@ -155,12 +155,12 @@ public class Jogador implements Serializable {
                             
         }
 
-        //Verifica se o jogador eh maquina
+        // Verifica se o jogador eh maquina
         if(this.tipo == 'M' || this.tipo == 'm'){
             int melhorJogada = -1;
             int melhorPontuacao = 0;
             
-            //Percorre jogadas para determinar a melhor
+            // Percorre jogadas para determinar a melhor
             for (int choice = 1; choice <= 13; choice++) {
                 if (validar(choice)) {
                     int pontuacao = jogo.pontuarJogada(choice);
@@ -171,7 +171,7 @@ public class Jogador implements Serializable {
                 }
             }
 
-            //caso todas as pontuacoes forem 0, escolhe uma aleatoria para zerar
+            // Caso todas as pontuacoes forem 0, escolhe uma aleatoria para zerar:
             if(melhorJogada == -1){
                 melhorJogada = random.nextInt(13) + 1;
                 while(!validar(melhorJogada)){

@@ -4,11 +4,11 @@ Projeto de programação em Java do jogo General, referente à disciplina de Pro
 # Introdução
 
 General é um jogo de dados para dois ou mais jogadores. Para jogar General são necessários cinco dados comuns (hexaédricos) e uma cartela de marcação. O objetivo do jogo é marcar o maior número de pontos, através de algumas combinações de resultados nos dados.
-A aplicação poderá executar n (indeterminadas) rodadas para os jogadores (humanos ou máquinas) participantes do Campeonato do Jogo General. Em cada rodada, cada jogador (humano ou máquina), por sua vez, joga os dados e, conforme o resultado obtido, marca a jogada prevista em sua cartela. Uma vez marcada, aquela jogada não poderá ser repetida pelo mesmo jogador até o final da rodada.
+Essa aplicação executa n (indeterminadas) partidas, cada uma com 13 rodadas, para os jogadores (humanos ou máquinas) participantes do Campeonato do Jogo General. Em toda rodada, cada jogador (humano ou máquina), por sua vez, joga os dados e, conforme o resultado obtido, rola os dados mais uma única vez, pula, ou então marca a jogada prevista em sua cartela. Uma vez marcada, aquela jogada não poderá ser repetida pelo mesmo jogador até o final da rodada.
 
 ## Regras:
 
-(1) Sendo 13 o número de jogadas possíveis e 13 o número máximo de linhas para cada coluna na cartela de marcaçã, uma rodada consiste de 13 jogadas para cada jogador.
+(1) Sendo 13 o número de jogadas possíveis e 13 o número máximo de linhas para cada coluna na cartela de marcação, uma rodada consiste de 13 jogadas para cada jogador.
 
 (2) Cada jogador (humano ou máquina), em sua vez, tem apenas uma chance de arremessar os dados.
 
@@ -28,7 +28,7 @@ A aplicação poderá executar n (indeterminadas) rodadas para os jogadores (hum
 
 -Sequência baixa (S-): 1-2-3-4-5. Vale 40 pontos.
 
--General (G): cinco dados marcando o mesmo n´umero (por exemplo: 4-4-4-4-4). Vale 50 pontos.
+-General (G): cinco dados marcando o mesmo número (por exemplo: 4-4-4-4-4). Vale 50 pontos.
 
 -Jogada aleatória (X) : qualquer combinação. Vale a soma dos 5 dados. Por exemplo: 1-4-4-5-6 vale 20 pontos.
 
@@ -36,4 +36,4 @@ A aplicação poderá executar n (indeterminadas) rodadas para os jogadores (hum
 
 (5) Se um determinado resultado não cumprir os requisitos para a jogada escolhida, o jogador zera a respectiva jogada. E ainda, se um determinado resultado não puder ser classificado como nenhuma das jogadas ainda restantes para aquele jogador, ele deverá escolher qual das jogadas restantes será descartada, marcando 0 (zero) para a jogada correspondente.
 
-(6) Ao final de 13 rodadas, com a cartela toda preenchida, somam-se os valores de cada coluna, e o jogador que obtiver mais pontos será considerado o vencedor
+(6) Ao final de 13 rodadas, com a cartela toda preenchida, somam-se os valores de cada coluna, e o jogador que obtiver mais pontos será considerado o vencedor.

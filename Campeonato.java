@@ -185,14 +185,14 @@ public class Campeonato implements Serializable{
     public void mostrarCartela(){
         String s = new String();
 
-        System.out.println("---- Cartela de Resultados ----\n \t");
+        System.out.print("---- Cartela de Resultados ----\n         |    \t");
 
         for(int i = 0; i < players.length; i++){
             if(players[i] != null){
-                s = s + "\t" + players[i].getNome() + "(" + players[i].getTipo() + ")";
+                s = s + players[i].getNome() + "(" + players[i].getTipo() + ")\t|\t";
             }
         }
-        System.out.printf(s +"\n");
+        System.out.println(s +"\n");
         
         for(int j = 1; j <= 13; j++){
             s = "";
@@ -222,7 +222,7 @@ public class Campeonato implements Serializable{
                 s = s + "     ";
             }
 
-            s = s + "   ";
+            s = s + "   |   \t";
             for(int i = 0; i < players.length; i++){
                 if(players[i]!= null){
                     s += players[i].cartela(j);
@@ -231,11 +231,11 @@ public class Campeonato implements Serializable{
             s = s + "\n";
             System.out.println(s);
         }
-        s = "------------------------------------\n Total\t";
+        s = "------------------------------------\n Total   |   \t";
 
         for(int i = 0; i < players.length; i++){
             if(players[i]!= null){
-                s += players[i].total() + "\t";
+                s += players[i].total() + "\t|\t";
             }
         }
         
