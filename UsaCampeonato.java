@@ -27,7 +27,7 @@ public class UsaCampeonato {
                     System.out.println("Opcao invalida! Tente novamente.");
                 }
             }while(op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm');
-    
+            
             tec.nextLine(); // Limpa o buffer do teclado.
     
             switch(op){
@@ -99,8 +99,6 @@ public class UsaCampeonato {
                     System.out.println("f - Ler os dados em arquivo"); 
                     System.out.println("g - Sair do jogo"); 
                     break;
-                default:
-                    System.out.println("ERRO");
             }
         }
 

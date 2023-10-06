@@ -76,19 +76,32 @@ public class Jogador implements Serializable {
         //Verifica se jogador eh humano.
         if(this.tipo == 'H' || this.tipo == 'h'){
             int guia = 0; 
-            int escolha;
+            int escolha = 0;
+            int rolou = 0; // Variavel que marca se o jogador ja rolou os dados uma segunda vez.
 
             while(guia == 0){ // O guia grava se a jogada foi ou nao confirmada.
-                do{ // Verifica se eh um numero valido
-                    System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez): ");
-                    escolha = teclado.nextInt();
+                do{ 
+                    if(rolou == 0){
+                        System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez ou 14 para rolar os dados novamente): ");
+                        escolha = teclado.nextInt();
+                    }
+                    else if(rolou == 1){
+                        System.out.println("Escolha uma jogada de 1 a 13 (digite 0 para pular a vez): ");
+                        escolha = teclado.nextInt();
+                    }
                     
-                    if(escolha < 0 || escolha > 13){
-                        System.out.println("Favor, informar um numero entre 0 e 13. ");
+                    if(escolha < 0 || escolha > 14){
+                        if(rolou == 0){
+                            System.out.println("Favor, informar um numero entre 0 e 14. ");
+                        }
+
+                        if(rolou == 1){
+                            System.out.println("Favor, informar um numero entre 0 e 13. ");
+                        }
                     }    
-                }while(escolha < 0 || escolha > 13);
+                }while(escolha < 0 || escolha > 14); // Verifica se eh um numero valido.
             
-                if (escolha == 0) { //caso pule a vez
+                if (escolha == 0) { // Caso pule a vez:
                     int jogadaAleatoria;
                     do {
                         jogadaAleatoria = random.nextInt(13) + 1;
@@ -97,6 +110,16 @@ public class Jogador implements Serializable {
                     System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
                     jogo.setJogada(jogadaAleatoria, 0); // Atribui zero a ela.
                     guia = 1;
+                }
+                // Se o jogador escolher rolar os dados novamente,
+                // ele ganha uma unica chance de fazer isso:
+                else if(escolha == 14 && rolou == 0){ 
+                    this.jogada();
+                    System.out.println(mostraJogadasExecutadas());
+                    rolou = 1;
+                }
+                else if(escolha == 14 && rolou == 1){
+                    System.out.println("Os dados ja rolaram uma segunda vez. Escolha uma jogada entre 1 e 13 ou pule a vez. ");
                 }
                 else{
                     // Verificar se a jogada é válida:
