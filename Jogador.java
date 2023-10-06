@@ -28,6 +28,12 @@ public class Jogador implements Serializable {
         this.tipo = tipo;
     }
 
+    public String cartela(int i){ //Retorna pontuacao de uma jogada especifica
+        String s = new String();
+        s = jogo.montarTabela2(i);
+        return s;
+    }
+
     public String mostraJogadasExecutadas(){
         String s = new String();
 
@@ -56,12 +62,6 @@ public class Jogador implements Serializable {
 
     public int total(){ //Calcula pontuacao total
         return jogo.calculaTotal();
-    }
-
-    public String cartela(int i){ //Retorna pontuacao de uma jogada especifica
-        String s = new String();
-        s = jogo.montarTabela(i);
-        return s;
     }
 
     public void escolherJogada(){

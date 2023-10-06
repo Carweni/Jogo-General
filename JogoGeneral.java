@@ -216,4 +216,18 @@ public class JogoGeneral implements Serializable {
 
         return s;
     }
+
+    // O seguinte metodo, como o anterior, grava em string a pontuacao de uma jogada, mas com uma formatacao diferente:
+    public String montarTabela2(int i){
+        String s = new String();
+
+        if(jogadas[i - 1] == -1){
+            s = s + "-\t";
+        }
+        else{
+            s = s + jogadas[i - 1] + "\t";
+        }
+
+        return s;
+    }
 }
