@@ -17,6 +17,7 @@ public class UsaCampeonato {
         System.out.println("f - Ler os dados em arquivo"); 
         System.out.println("g - Sair do jogo"); 
         System.out.println("j - Mostrar tabela de jogadores");
+        System.out.println("r - Regras do jogo");
 
         while(sair == 0){
             // Escolhe-se uma opcao do menu. Se for invalida, informa-se o usuario e esse informa uma nova escolha.
@@ -24,10 +25,10 @@ public class UsaCampeonato {
                 System.out.println("Escolha a sua opcao (m mostra o menu novamente): ");
                 op = tec.next().charAt(0);
     
-                if (op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm' && op != 'j'){
+                if (op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm' && op != 'j' && op != 'r'){
                     System.out.println("Opcao invalida! Tente novamente.");
                 }
-            }while(op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm' && op != 'j');
+            }while(op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm' && op != 'j' && op != 'r');
             
             tec.nextLine(); // Limpa o buffer do teclado.
     
@@ -93,6 +94,9 @@ public class UsaCampeonato {
                     break;
                 case 'j':
                     league.mostrarJogadores();
+                    break;
+                case 'r':
+                    System.out.println(" ");
                     break;
                 case 'm': // Se a escolha foi 'm', mostra-se o menu novamente:
                     System.out.println(":..::..: Menu interativo :..::..: ");
