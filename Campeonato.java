@@ -69,6 +69,37 @@ public class Campeonato implements Serializable{
         return false;
     }
 
+    public void mostrarJogadores(){
+        int cont=1;
+        String s = new String();
+        char tipo;
+
+        if(jogadorVazio()){
+            System.out.println("\nNenhum jogador foi registrado\n");
+        }
+        else{
+            System.out.println("\n-------- JOGADORES -------\n");
+    
+            s = "-";
+            
+            for(int i=0; i<players.length;i++){
+                if(players[i]!=null){
+                    tipo = players[i].getTipo();
+                    if(tipo == 'h'){
+                        s = "Humano";
+                    }
+                    if(tipo == 'm'){
+                        s = "Maquina";
+                    }
+                    System.out.println(cont + " - " + players[i].getNome() + "\t" + s);
+                    s = "-";
+                    cont++;
+                }
+            }
+            System.out.print("\n");;
+        }
+        
+    }
     // Inicia a partida do jogo General:
     public void iniciarCampeonato(){
         int maior = 0, tot = 0, maiorInd = 0;

@@ -16,6 +16,7 @@ public class UsaCampeonato {
         System.out.println("e - Gravar os resultados em arquivo"); 
         System.out.println("f - Ler os dados em arquivo"); 
         System.out.println("g - Sair do jogo"); 
+        System.out.println("j - Mostrar tabela de jogadores");
 
         while(sair == 0){
             // Escolhe-se uma opcao do menu. Se for invalida, informa-se o usuario e esse informa uma nova escolha.
@@ -23,10 +24,10 @@ public class UsaCampeonato {
                 System.out.println("Escolha a sua opcao (m mostra o menu novamente): ");
                 op = tec.next().charAt(0);
     
-                if (op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm'){
+                if (op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm' && op != 'j'){
                     System.out.println("Opcao invalida! Tente novamente.");
                 }
-            }while(op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm');
+            }while(op != 'a' && op != 'b' && op != 'c' && op != 'd' && op != 'e' && op != 'f' && op != 'g' && op != 'm' && op != 'j');
             
             tec.nextLine(); // Limpa o buffer do teclado.
     
@@ -56,6 +57,7 @@ public class UsaCampeonato {
                     
                     break;
                 case 'b': // Se a escolha foi 'b', remove-se um jogador:
+
                     System.out.println("Informe o apelido(nickname) do jogador a ser excluido: ");
                     String name = tec.nextLine();
                     
@@ -89,6 +91,9 @@ public class UsaCampeonato {
                 case 'g': // Se a escolha foi 'g', sai da aplicacao:
                     sair = 1;
                     break;
+                case 'j':
+                    league.mostrarJogadores();
+                    break;
                 case 'm': // Se a escolha foi 'm', mostra-se o menu novamente:
                     System.out.println(":..::..: Menu interativo :..::..: ");
                     System.out.println("a - Incluir jogador");
@@ -97,7 +102,8 @@ public class UsaCampeonato {
                     System.out.println("d - Mostrar cartela de resultados"); 
                     System.out.println("e - Gravar os resultados em arquivo"); 
                     System.out.println("f - Ler os dados em arquivo"); 
-                    System.out.println("g - Sair do jogo"); 
+                    System.out.println("g - Sair do jogo");
+                    System.out.println("j - Mostrar tabela de jogadores"); 
                     break;
             }
         }
