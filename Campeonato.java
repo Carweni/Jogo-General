@@ -71,7 +71,7 @@ public class Campeonato implements Serializable{
 
     // Mostra tabela de jogadores
     public void mostrarJogadores(){
-        int cont=1;
+        int cont = 1;
         String s = new String();
         char tipo;
 
@@ -83,7 +83,7 @@ public class Campeonato implements Serializable{
     
             s = "-";
             
-            for(int i=0; i<players.length;i++){ //Percorre o array de Jogadores e imprime os registrados
+            for(int i = 0; i < players.length; i++){ //Percorre o array de Jogadores e imprime os registrados
                 if(players[i]!=null){ 
                     tipo = players[i].getTipo();
                     if(tipo == 'h'){
