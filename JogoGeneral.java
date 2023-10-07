@@ -46,7 +46,7 @@ public class JogoGeneral implements Serializable {
         System.out.println("Valores obtidos:");
 
         for(i = 0; i < 5; i++){
-            str = str + this.dice[i].toStringDado();
+            str = str + this.dice[i].toString();
 
             if (i < 4){
                 str = str + "-";
