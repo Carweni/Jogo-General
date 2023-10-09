@@ -8,7 +8,7 @@ public class JogoGeneral implements Serializable {
         int i;
 
         for(i = 0; i < 5; i++){
-            this.dice[i] = new Dado();  // Inicializa os dados.
+            this.dice[i] = new Dado();  // Inicializa os dados. O vetor jogadas permanece com a inicialização padrão.
         }
     }
 
@@ -17,7 +17,7 @@ public class JogoGeneral implements Serializable {
             this.dice[i] = new Dado();  // Inicializa os dados.
         }
         for(int j = 0; j < 13; j++){
-            this.jogadas[j] = jogada;   // Se o indice marca -1, significa que a jogada ainda nao foi realizada.
+            this.jogadas[j] = jogada;   // Inicializa o vetor das jogadas com um valor definido.
         }
     }
 
