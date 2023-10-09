@@ -69,13 +69,13 @@ public class Campeonato implements Serializable{
         return false;
     }
 
-    // Mostra tabela de jogadores
+    // Mostra tabela de jogadores:
     public void mostrarJogadores(){
         int cont = 1;
         String s = new String();
         char tipo;
 
-        if(jogadorVazio()){ //Verifica se tem jogadores registrados
+        if(jogadorVazio()){ // Verifica se tem jogadores registrados.
             System.out.println("\nNenhum jogador foi registrado\n");
         }
         else{
@@ -83,7 +83,7 @@ public class Campeonato implements Serializable{
     
             s = "-";
             
-            for(int i = 0; i < players.length; i++){ //Percorre o array de Jogadores e imprime os registrados
+            for(int i = 0; i < players.length; i++){ // Percorre o array de Jogadores e imprime os registrados.
                 if(players[i]!=null){ 
                     tipo = players[i].getTipo();
                     if(tipo == 'h'){

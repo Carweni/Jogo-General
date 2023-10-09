@@ -7,12 +7,12 @@ public class Jogador implements Serializable {
     private char tipo;
     private JogoGeneral jogo = new JogoGeneral(-1);
 
-    public Jogador(String nome, char tipo) { //Inicializa jogador
+    public Jogador(String nome, char tipo) { // Inicializa jogador.
         this.nome = nome;
         this.tipo = tipo;
     }
 
-    public String getNome() { //Retorna o nome
+    public String getNome() { // Retorna o nome.
         return nome;
     }
 
@@ -24,7 +24,7 @@ public class Jogador implements Serializable {
         this.nome = nome;
     }
 
-    public void setTipo(char tipo) { //Altera o tipo.
+    public void setTipo(char tipo) { // Altera o tipo.
         this.tipo = tipo;
     }
 
@@ -34,7 +34,7 @@ public class Jogador implements Serializable {
         return s;
     }
 
-    public String cartela2(int i){ //Retorna pontuação de uma jogada específica para as tabelas intermediárias.
+    public String cartela2(int i){ // Retorna pontuação de uma jogada específica para as tabelas intermediárias.
         String s = new String();
         s = jogo.montarTabela2(i);
         return s;
@@ -55,18 +55,18 @@ public class Jogador implements Serializable {
         jogo.inicializarJogadas();
     }
 
-    public void jogada(){ // Efetua uma jogada, rolando os dados e imprimindo
+    public void jogada(){ // Efetua uma jogada, rolando os dados e imprimindo.
        jogo.rolarDados();
        String s = jogo.toString(); 
 
        System.out.printf(s);
     }
 
-    public boolean validar(int escolha){ // Valida a jogada
+    public boolean validar(int escolha){ // Valida a jogada.
         return jogo.validarJogada(escolha);
     }
 
-    public int total(){ // Calcula pontuacao total
+    public int total(){ // Calcula pontuacao total.
         return jogo.calculaTotal();
     }
 
@@ -114,7 +114,7 @@ public class Jogador implements Serializable {
                     } while (!this.validar(jogadaAleatoria));
                 
                     System.out.println("Você pulou a vez. Sua jogada aleatória zerada foi: " + jogadaAleatoria);
-                    jogo.setJogada(jogadaAleatoria, 0); // Atribui zero a ela.
+                    jogo.setJogada(jogadaAleatoria, 0); // Escolhe-se uma jogada aleatoria e atribui zero a ela.
                     guia = 1;
                 }
                 // Se o jogador escolher rolar os dados novamente,
@@ -161,12 +161,12 @@ public class Jogador implements Serializable {
                             
         }
 
-        // Verifica se o jogador eh maquina
+        // Verifica se o jogador eh maquina:
         if(this.tipo == 'M' || this.tipo == 'm'){
             int melhorJogada = -1;
             int melhorPontuacao = 0;
             
-            // Percorre jogadas para determinar a melhor
+            // Percorre jogadas para determinar qual a melhor(que rende maior pontuacao):
             for (int choice = 1; choice <= 13; choice++) {
                 if (validar(choice)) {
                     int pontuacao = jogo.pontuarJogada(choice);

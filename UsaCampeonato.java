@@ -93,6 +93,7 @@ public class UsaCampeonato {
                     break;
                 case 'g': // Se a escolha foi 'g', sai da aplicacao:
                     sair = 1;
+                    System.out.println("Saindo do jogo...até a próxima! ");
 
                     break;
                 case 'j': // Se a escolha foi 'j', mostra-se os jogadores que já foram registrados:
