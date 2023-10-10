@@ -1,12 +1,16 @@
 # Jogo-General
 Projeto de programação em Java do jogo General, referente à disciplina de Programação Orientada a Objetos.
 
-# Introdução
+## Introdução
 
 General é um jogo de dados para dois ou mais jogadores. Para jogar General são necessários cinco dados comuns (hexaédricos) e uma cartela de marcação. O objetivo do jogo é marcar o maior número de pontos, através de algumas combinações de resultados nos dados.
 Essa aplicação executa n (indeterminadas) partidas, cada uma com 13 rodadas, para os jogadores (humanos ou máquinas) participantes do Campeonato do Jogo General. Em toda rodada, cada jogador (humano ou máquina), por sua vez, joga os dados e, conforme o resultado obtido, rola os dados mais uma única vez, pula, ou então marca a jogada prevista em sua cartela. Uma vez marcada, aquela jogada não poderá ser repetida pelo mesmo jogador até o final da rodada.
 
-## Regras:
+### Diagrama UML:
+
+https://github.com/[Carweni]/[Jogo-General]/blob/[main]/Diagrama UML.jpeg?raw=true
+
+### Regras:
 
 (1) Sendo 13 o número de jogadas possíveis e 13 o número máximo de linhas para cada coluna na cartela de marcação, uma rodada consiste de 13 jogadas para cada jogador.
 
