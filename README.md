@@ -8,7 +8,7 @@ Essa aplicação executa n (indeterminadas) partidas, cada uma com 13 rodadas, p
 
 ### Diagrama UML:
 
-https://github.com/[Carweni]/[Jogo-General]/blob/[main]/Diagrama UML.jpeg?raw=true
+https://github.com/[Carweni]/[Jogo-General]/blob/[main]/Diagrama.jpeg?raw=true
 
 ### Regras:
 
